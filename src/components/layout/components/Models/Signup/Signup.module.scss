@@ -1,0 +1,17 @@
+@import "../Modals.module.scss";
+
+// sign up
+.signupPolicy {
+    width: $w-375;
+    margin: 16px 0;
+    color: rgba(22, 24, 35, 0.5);
+}
+.text-policy-color {
+    color: rgb(22, 24, 35) !important;
+    text-decoration: none;
+}
+.dropDown {
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px;
+}

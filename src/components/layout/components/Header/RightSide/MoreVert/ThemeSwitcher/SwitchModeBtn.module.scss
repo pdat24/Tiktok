@@ -1,0 +1,25 @@
+@import "../MoreVert.module.scss";
+$time-transition: 240ms;
+
+.switch {
+    height: 24px;
+    width: 44px;
+    background-color: rgba(22, 24, 35, 0.16);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 1.6px;
+    transition: background-color $time-transition;
+}
+.switch input {
+    height: 0;
+    width: 0;
+}
+.slide {
+    width: 20px;
+    height: 90%;
+    background-color: #fff;
+    border-radius: 24px;
+    transition: transform $time-transition ease-in-out;
+}

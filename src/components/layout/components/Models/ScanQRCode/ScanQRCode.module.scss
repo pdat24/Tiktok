@@ -1,0 +1,19 @@
+@import "../Modals.module.scss";
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+    width: 375px;
+    padding: 32px;
+    margin: 30px auto 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+.instruction {
+    width: $w-375;
+    margin: 20px 0;
+    font-size: 16px;
+    list-style-type: decimal;
+    list-style-position: inside;
+}

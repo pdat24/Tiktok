@@ -1,0 +1,60 @@
+@import "../../Header.module.scss";
+
+// more vert
+.more-vert {
+    margin-left: 16px;
+    position: relative;
+}
+.menu-container {
+    display: none;
+    transition: opacity 320ms;
+}
+.more-vert-list {
+    position: absolute;
+    min-width: 223px;
+    padding: 8px 0;
+    font-weight: 500;
+    font-size: 16px;
+    list-style-type: none;
+    transform: translateX(-85%);
+    margin: 6px 0 0;
+    box-shadow: 0 0 16px #ccc;
+    background-color: #fff;
+    border-radius: 8px;
+    cursor: default;
+}
+.more-vert-items {
+    font-weight: normal;
+    padding: 10px 8px 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 100ms;
+    cursor: pointer;
+}
+.more-vert-items:hover {
+    background-color: rgba(22, 24, 35, 0.03) !important;
+}
+.more-vert-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.more-vert-icon span:first-child {
+    font-size: 22px;
+}
+
+// lang
+.active-lang {
+    background-color: $bg-search-bar;
+    font-weight: bold;
+}
+.langs-picker {
+    padding: 0;
+    list-style-type: none;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+.langs-header {
+    margin-left: 15%;
+}

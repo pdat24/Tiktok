@@ -1,0 +1,9 @@
+export { default as Container } from "./Container";
+export { default as Title } from "./Title";
+export { default as Dialog } from "./Dialog";
+export { default as ButtonClose } from "./ButtonClose";
+export { default as Content } from "./Content";
+export { default as Footer } from "./Footer";
+export { default as PLatform } from "./Platform";
+export { default as PlatformsList } from "./PlatformsList";
+export { default as ModelBody } from "./ModelBody";

@@ -1,0 +1,47 @@
+// @import "normalize.css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
+
+$header-h: 60px;
+
+:root {
+    --primary-color: rgb(254, 44, 85);
+    --text-color: #333;
+}
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@mixin modalCloseBtn($mar, $pad) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: $pad !important;
+    margin: $mar !important;
+    background-color: #ddd !important;
+    border-radius: 50% !important;
+}
+
+.color-primary {
+    color: var(--primary-color) !important;
+}
+
+.modal-center {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}

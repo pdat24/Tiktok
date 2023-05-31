@@ -1,0 +1,22 @@
+@import "../Header.module.scss";
+
+.header__right-btn {
+    display: flex !important;
+    align-items: center;
+    padding: 0 16px !important;
+    min-width: 110px;
+    height: 36px;
+}
+.upload-btn:hover {
+    background-color: $bg-search-bar !important;
+}
+.login-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    justify-content: center;
+    margin-left: 16px;
+    padding: 0 4px !important;
+}
+.login-btn:hover {
+    filter: hue-rotate(24deg);
+}
