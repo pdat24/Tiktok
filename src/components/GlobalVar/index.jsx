@@ -1,4 +1,10 @@
 /* eslint-disable react-refresh/only-export-components */
+import channelImage from "../../assets/imgs/tiktokChannel.jpeg";
+import channel1 from "../../assets/imgs/channel1.jpeg";
+import channel2 from "../../assets/imgs/channel2.jpeg";
+import channel3 from "../../assets/imgs/channel3.jpeg";
+import channel4 from "../../assets/imgs/channel4.jpeg";
+import { Channel } from "../SidebarComponent";
 const QRCODE = "QR";
 const PERSONAL_INFO = "Personal Information";
 const FACEBOOK = "Facebook";
@@ -262,4 +268,77 @@ const langs = [
     "Korean",
 ];
 
-export { platforms, langs, FACEBOOK, GOOGLE, LINE, KAKAOTALK, INSTAGRAM, APPLE, TWITTER, QRCODE, PERSONAL_INFO };
+const channels = [
+    {
+        id: "@1",
+        channel: <Channel img={channelImage} url="/" name="theanh28entertainment" desc="Theanh28 Entertainment" />,
+    },
+    {
+        id: "@2",
+        channel: <Channel img={channel1} url="/" name="hoaa.hanassii" desc="Đào Lê Phương Hoa" />,
+    },
+    {
+        id: "@3",
+        channel: <Channel img={channel2} url="/" name="cciinnn" desc="CiiN" />,
+    },
+    {
+        id: "@4",
+        channel: <Channel img={channel3} url="/" name="vtv24news" desc="VTV24" />,
+    },
+    {
+        id: "@5",
+        channel: <Channel img={channel4} url="/" name="vienvibi_899" desc="Viên Vibi" />,
+    },
+];
+
+const tags = [
+    { url: "/", text: "suthatla" },
+    { url: "/", text: "mackedoi" },
+    { url: "/", text: "sansangthaydoi" },
+    { url: "/", text: "Yêu Đơn Phương Là Gì (MEE Remix) - Mee Media & h0n & BHMedia", music: true },
+    { url: "/", text: "Anh Yêu Vội Thế (Mee Remix) - LaLa Trần, Mee Media", music: true },
+    { url: "/", text: "Thiên Thần Tình Yêu - RICKY STAR ạnd T.R.I", music: true },
+    { url: "/", text: "7749hieuung" },
+    { url: "/", text: "genzlife" },
+    { url: "/", text: "Vui Lắm Nha (TikTok Remix 1) - Hương Ly & Jombie", music: true },
+    { url: "/", text: "Em hát Ai Nghe - Cukak & H2K & BHMedia", music: true },
+];
+
+const info = [
+    "Giới thiệu",
+    "Bảng tin",
+    "Liên hệ",
+    "Sự nghiệp",
+    "ByteDance",
+    "TikTok for Good",
+    "Quảng cáo",
+    "Developers",
+    "Minh bạch",
+    "TikTok Rewards",
+    "TikTok Embeds",
+    "Trợ giúp",
+    "An toàn",
+    "Điều khoản",
+    "Quyền riêng tư",
+    "Cổng thông tin",
+    "Tác giả",
+    "Hướng dẫn Cộng đồng",
+    "Thêm",
+];
+
+export {
+    platforms,
+    langs,
+    FACEBOOK,
+    GOOGLE,
+    LINE,
+    KAKAOTALK,
+    INSTAGRAM,
+    APPLE,
+    TWITTER,
+    QRCODE,
+    PERSONAL_INFO,
+    channels,
+    tags,
+    info,
+};

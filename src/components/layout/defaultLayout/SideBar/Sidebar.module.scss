@@ -1,0 +1,27 @@
+@import "../../../GlobalStyle/GlobalStyle.scss";
+
+.wrapper {
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 240px;
+    position: fixed;
+    bottom: 0;
+    top: 60px;
+    left: 0;
+}
+.buttonLogin {
+    width: 100%;
+    padding: 8px 6px;
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    min-width: 168px;
+    min-height: 48px;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 600;
+    margin-top: 20px;
+    &:hover {
+        background-color: #fe2c550f;
+    }
+}
