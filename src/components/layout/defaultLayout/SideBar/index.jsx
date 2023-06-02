@@ -36,7 +36,7 @@ function SideBar() {
         margin-top: 5px;
     `;
     return (
-        <div id="sidebarWrapper" className={scss.wrapper}>
+        <div className={scss.wrapper} id="sidebarWrapper">
             <div
                 css={css`
                     padding: 20px 0 25px 8px;

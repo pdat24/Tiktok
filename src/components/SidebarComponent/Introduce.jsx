@@ -3,7 +3,8 @@ import { css } from "@emotion/react";
 import { GeneralButton, ChannelName, TickIcon } from "../GeneralComponent";
 import { Link } from "react-router-dom";
 
-function Introduce({ img, name, desc, follower, like, hidden, className }) {
+function Introduce({ img, name, desc, follower, like, hidden, className, coordinate }) {
+    // console.log(coordinate);
     const wrapperStyle = css`
         width: 320px;
         box-sizing: border-box;
@@ -33,7 +34,7 @@ function Introduce({ img, name, desc, follower, like, hidden, className }) {
         height: 32px;
     `;
     return !hidden ? (
-        <div className={className} css={wrapperStyle}>
+        <div className={className} css={wrapperStyle} style={{ top: coordinate + "px" }}>
             <div className="flex justify-between mb-3">
                 <img css={imgStyle} src={img} alt="image" />
                 <GeneralButton>Follow</GeneralButton>

@@ -12,7 +12,7 @@ function GeneralButton({ children, ...args }) {
         width: ${({ w }) => (w ? w : "110px")};
         height: ${({ h }) => (h ? h : "36px")};
         &:hover {
-            filter: hue-rotate(24deg);
+            filter: brightness(0.9);
         }
     `;
     return <Button {...args}>{children}</Button>;

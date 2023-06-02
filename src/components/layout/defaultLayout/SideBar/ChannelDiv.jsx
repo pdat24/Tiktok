@@ -1,16 +1,26 @@
 /** @jsxImportSource @emotion/react */
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Introduce, Channel, SidebarTitle, Block } from "../../../SidebarComponent";
 import { channels } from "../../../GlobalVar";
 import plaeholderImg from "../../../../assets/imgs/placeholder.jpeg";
 
 function ChannelBlock({ onToggleProfile, id, img, url, name, desc, profile, like = "807.1", follower = "9.2" }) {
+    const channel = useRef();
+    const [coordinate, setCoordinate] = useState(0);
     return (
-        <li className="relative" onMouseEnter={() => onToggleProfile(id)} onMouseLeave={() => onToggleProfile("")}>
-            <Channel img={img} url={url} name={name} desc={desc} />
+        <li
+            className="relative"
+            onMouseEnter={() => {
+                setCoordinate(parseFloat(channel.current.getBoundingClientRect().top) + 48);
+                onToggleProfile(id);
+            }}
+            onMouseLeave={() => onToggleProfile("")}
+        >
+            <Channel ref={channel} img={img} url={url} name={name} desc={desc} />
             <Introduce
-                className="absolute"
+                coordinate={coordinate}
+                className="fixed"
                 hidden={profile !== id}
                 img={img}
                 url={url}
@@ -27,14 +37,18 @@ function ChannelDiv() {
     const [hidden, setHidden] = useState(true);
     const [profile, setProfile] = useState("");
     const timerID = useRef();
+    useEffect(() => {
+        document.getElementById("sidebarWrapper").onscroll = () => setProfile("");
+    }, []);
     const renderMore = () => {
         const res = [];
         channels.forEach((elem) =>
-            res.push(<ChannelBlock {...elem} onToggleProfile={handleToggleProfile} profile={profile} />)
+            res.push(<ChannelBlock key={elem.id} {...elem} onToggleProfile={handleToggleProfile} profile={profile} />)
         );
         for (let i = 0; i < 20; ++i) {
             res.push(
                 <ChannelBlock
+                    key={i}
                     profile={profile}
                     img={plaeholderImg}
                     url="/"
@@ -59,7 +73,7 @@ function ChannelDiv() {
         ));
     };
     return (
-        <Block className="py-4">
+        <Block className="py-4" onScroll={() => alert("worked")}>
             <SidebarTitle>Tài khoản được đề xuất</SidebarTitle>
             <div>
                 <ul>{hidden ? renderSome() : renderMore()}</ul>
