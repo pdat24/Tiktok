@@ -9,6 +9,7 @@ import scss from "./RightSide.module.scss";
 import MoreVert from "./MoreVert";
 import handleOpen from "../../../../ModalComponent/handleOpen";
 import { setTitle } from "../../../../GlobalStore/rootSlide";
+import { GeneralButton } from "../../../../GeneralComponent";
 
 // main
 function RightSide() {
@@ -38,7 +39,8 @@ function RightSide() {
                 <span>Tải lên</span>
             </Link>
             {/** Log in button */}
-            <button
+            <GeneralButton
+                className="ml-4"
                 onClick={() => {
                     updateTitle(setTitle("Đăng nhập | TikTok"));
                     handleOpen({
@@ -46,11 +48,9 @@ function RightSide() {
                         dialog: document.getElementById("loginDialog"),
                     });
                 }}
-                className={clsx(scss["login-btn"], scss["header__right-btn"], "rounded")}
             >
                 <span className={clsx("mx-2", "font-bold")}>Đăng nhập</span>
-            </button>
-            {/** three dots symbol */}
+            </GeneralButton>
             <MoreVert />
         </div>
     );

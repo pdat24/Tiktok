@@ -4,7 +4,6 @@ import channel1 from "../../assets/imgs/channel1.jpeg";
 import channel2 from "../../assets/imgs/channel2.jpeg";
 import channel3 from "../../assets/imgs/channel3.jpeg";
 import channel4 from "../../assets/imgs/channel4.jpeg";
-import { Channel } from "../SidebarComponent";
 const QRCODE = "QR";
 const PERSONAL_INFO = "Personal Information";
 const FACEBOOK = "Facebook";
@@ -271,23 +270,38 @@ const langs = [
 const channels = [
     {
         id: "@1",
-        channel: <Channel img={channelImage} url="/" name="theanh28entertainment" desc="Theanh28 Entertainment" />,
+        name: "theanh28entertainment",
+        desc: "Theanh28 Entertainment",
+        url: "/",
+        img: channelImage,
     },
     {
         id: "@2",
-        channel: <Channel img={channel1} url="/" name="hoaa.hanassii" desc="Đào Lê Phương Hoa" />,
+        name: "hoaa.hanassii",
+        desc: "Đào Lê Phương Hoa",
+        url: "/",
+        img: channel1,
     },
     {
         id: "@3",
-        channel: <Channel img={channel2} url="/" name="cciinnn" desc="CiiN" />,
+        name: "cciinnn",
+        desc: "CiiN",
+        url: "/",
+        img: channel2,
     },
     {
         id: "@4",
-        channel: <Channel img={channel3} url="/" name="vtv24news" desc="VTV24" />,
+        name: "vtv24news",
+        desc: "VTV24",
+        url: "/",
+        img: channel3,
     },
     {
         id: "@5",
-        channel: <Channel img={channel4} url="/" name="vienvibi_899" desc="Viên Vibi" />,
+        name: "vienvibi_899",
+        desc: "Viên Vibi",
+        url: "/",
+        img: channel4,
     },
 ];
 

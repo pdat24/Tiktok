@@ -15,6 +15,7 @@ function QRScannerModal({ onModal }) {
             <ModelBody
                 css={css`
                     padding-bottom: 112px;
+                    padding-right: 6px;
                 `}
             >
                 <div className="p-0 overflow-auto">

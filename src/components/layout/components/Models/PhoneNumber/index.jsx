@@ -14,6 +14,7 @@ function UsePhoneNumberModal({ onModal }) {
             <ModelBody
                 css={css`
                     padding-bottom: 112px;
+                    padding-right: 6px;
                 `}
             >
                 <Title className="mb-8 text-4xl">Đăng nhập</Title>

@@ -10,13 +10,3 @@
 .upload-btn:hover {
     background-color: $bg-search-bar !important;
 }
-.login-btn {
-    background-color: var(--primary-color);
-    color: #fff;
-    justify-content: center;
-    margin-left: 16px;
-    padding: 0 4px !important;
-}
-.login-btn:hover {
-    filter: hue-rotate(24deg);
-}

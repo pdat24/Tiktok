@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unknown-property */
-/* eslint-disable react/prop-types */
 /** @jsxImportSource @emotion/react */
 import { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,29 +7,24 @@ import { css } from "@emotion/react";
 import scss from "./SwitchModeBtn.module.scss";
 import { setTheme } from "../../../../../../GlobalStore/rootSlide";
 
-function ModeButton({ on }) {
+function ModeButton() {
+    const theme = useSelector((state) => state.root.theme);
     const updateTheme = useDispatch();
     const slide = useRef();
     const checkbox = useRef();
     useEffect(() => {
-        slide.current.style.transform = `translateX(${on ? "100%" : "0"})`;
-        checkbox.current.checked = on;
-    }, [on]);
+        slide.current.style.transform = `translateX(${theme ? "100%" : "0"})`;
+        checkbox.current.checked = theme;
+    }, [theme]);
     return (
         <label
             onMouseDown={(e) => {
                 e.stopPropagation();
                 updateTheme(setTheme());
             }}
-            css={
-                on
-                    ? css`
-                          background-color: rgba(108, 241, 31);
-                      `
-                    : css`
-                          background-color: rgba(22, 24, 35, 0.16);
-                      `
-            }
+            css={css`
+                ${theme ? "background-color: rgba(108, 241, 31)" : "background-color: rgba(22, 24, 35, 0.16)"}
+            `}
             className={clsx(scss["switch"])}
         >
             <input type="checkbox" ref={checkbox} />
@@ -42,7 +35,6 @@ function ModeButton({ on }) {
 
 // mode switcher
 function ThemeSwitcher() {
-    const theme = useSelector((state) => state.root.theme);
     const updateTheme = useDispatch();
     return (
         <li
@@ -50,10 +42,10 @@ function ThemeSwitcher() {
             onClick={() => updateTheme(setTheme())}
         >
             <div className={clsx(scss["more-vert-icon"], "flex", "gap-2")}>
-                <span className="material-symbols-outlined">{theme ? "light_mode" : "dark_mode"}</span>
-                <span>{theme ? "Chế độ sáng" : "Chế độ tối"}</span>
+                <span className="material-symbols-outlined">dark_mode</span>
+                <span>Chế độ tối</span>
             </div>
-            <ModeButton on={theme} />
+            <ModeButton />
         </li>
     );
 }

@@ -1,27 +1,62 @@
 /** @jsxImportSource @emotion/react */
-// import { css } from "@emotion/react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
-import { Channel, SidebarTitle, Block } from "../../../SidebarComponent";
+import { Introduce, Channel, SidebarTitle, Block } from "../../../SidebarComponent";
 import { channels } from "../../../GlobalVar";
 import plaeholderImg from "../../../../assets/imgs/placeholder.jpeg";
 
+function ChannelBlock({ onToggleProfile, id, img, url, name, desc, profile, like = "807.1", follower = "9.2" }) {
+    return (
+        <li className="relative" onMouseEnter={() => onToggleProfile(id)} onMouseLeave={() => onToggleProfile("")}>
+            <Channel img={img} url={url} name={name} desc={desc} />
+            <Introduce
+                className="absolute"
+                hidden={profile !== id}
+                img={img}
+                url={url}
+                name={name}
+                desc={desc}
+                follower={follower}
+                like={like}
+            />
+        </li>
+    );
+}
+
 function ChannelDiv() {
     const [hidden, setHidden] = useState(true);
+    const [profile, setProfile] = useState("");
+    const timerID = useRef();
     const renderMore = () => {
         const res = [];
-        channels.forEach((elem) => res.push(<li key={elem.id}>{elem.channel}</li>));
+        channels.forEach((elem) =>
+            res.push(<ChannelBlock {...elem} onToggleProfile={handleToggleProfile} profile={profile} />)
+        );
         for (let i = 0; i < 20; ++i) {
             res.push(
-                <li key={i}>
-                    <Channel img={plaeholderImg} url="/" name="vtvcab.tintuc" desc="VTVcab Tin tức" />
-                </li>
+                <ChannelBlock
+                    profile={profile}
+                    img={plaeholderImg}
+                    url="/"
+                    id={i}
+                    name="vtvcab.tintuc"
+                    desc="VTVcab Tin tức"
+                    onToggleProfile={handleToggleProfile}
+                />
             );
         }
         return res;
     };
+    const handleToggleProfile = (value) => {
+        clearTimeout(timerID.current);
+        timerID.current = setTimeout(() => {
+            setProfile(value);
+        }, 800);
+    };
     const renderSome = () => {
-        return channels.map((elem) => <li key={elem.id}>{elem.channel}</li>);
+        return channels.map((elem) => (
+            <ChannelBlock key={elem.id} {...elem} onToggleProfile={handleToggleProfile} profile={profile} />
+        ));
     };
     return (
         <Block className="py-4">

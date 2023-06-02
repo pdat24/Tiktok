@@ -5,9 +5,15 @@ import { LinkPage, SidebarTitle, Tag, Block } from "../../../SidebarComponent";
 import scss from "./Sidebar.module.scss";
 import ChannelDiv from "./ChannelDiv";
 import handleOpen from "../../../ModalComponent/handleOpen";
-import { tags, info } from "../../../GlobalVar";
+import { tags } from "../../../GlobalVar";
 
 function SideBar() {
+    const footer = [
+        ["Giới thiệu", "Bảng tin", "Liên hệ", "Sự nghiệp", "ByteDance"],
+        ["TikTok for Good", "Quảng cáo", "Developers", "Minh bạch", "TikTok Rewards", "TikTok Embeds"],
+        ["Trợ giúp", "An toàn", "Điều khoản", "Quyền riêng tư", "Cổng thông tin Tác giả", "Hướng dẫn Cộng đồng"],
+        ["Thêm"],
+    ];
     const links = [
         { url: "/", text: "Dành cho bạn", icon: "fa-house" },
         { url: "/following", text: "Đang Follow", icon: "fa-user-group" },
@@ -21,8 +27,16 @@ function SideBar() {
         align-items: center;
         justify-content: center;
     `;
+    const pin = css`
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 17px;
+        display: inline-block;
+        margin-right: 9px;
+        margin-top: 5px;
+    `;
     return (
-        <div className={scss.wrapper}>
+        <div id="sidebarWrapper" className={scss.wrapper}>
             <div
                 css={css`
                     padding: 20px 0 25px 8px;
@@ -83,31 +97,24 @@ function SideBar() {
                 </Block>
                 <div
                     css={css`
-                        display: flex;
-                        flex-wrap: wrap;
                         color: rgba(22, 24, 35, 0.5);
-                        padding-top: 16px;
-                        padding-bottom: 16px;
+                        padding: 16px 0 16px 8px;
                     `}
                 >
-                    {info.map((elem, index) => {
+                    {footer.map((group, groupIndex) => {
                         return (
-                            <a
-                                href="/"
-                                css={css`
-                                    font-weight: 600;
-                                    font-size: 12px;
-                                    line-height: 17px;
-                                    display: inline-block;
-                                    margin-right: 6px;
-                                    margin-top: 5px;
-                                `}
-                                key={index}
-                            >
-                                {elem}
-                            </a>
+                            <div className="mb-2" key={groupIndex}>
+                                {group.map((elem, elemIndex) => {
+                                    return (
+                                        <a key={elemIndex} className="hover:underline" href="/" css={pin}>
+                                            {elem}
+                                        </a>
+                                    );
+                                })}
+                            </div>
                         );
                     })}
+                    <span css={pin}>© 2023 TikTok</span>
                 </div>
             </div>
         </div>

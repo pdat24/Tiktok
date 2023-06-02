@@ -14,7 +14,7 @@ function LinkPage({ children, url }) {
         align-items: center;
         gap: 8px;
         border-radius: 4px;
-        transition: background ease-in-out 200ms;
+        transition: background ease-in-out 200ms, color ease-in-out 200ms;
         &:hover {
             background-color: #16182308;
         }
