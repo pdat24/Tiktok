@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { GeneralButton, ChannelName, TickIcon } from "../GeneralComponent";
+import { ChannelName, TickIcon } from "../GeneralComponent";
 import { Link } from "react-router-dom";
+import handleShowCount from "../BodyComponent/handelShowCount";
 
-function Introduce({ img, name, desc, follower, like, hidden, className, coordinate }) {
-    // console.log(coordinate);
+function Introduce({ name, desc, follower, like, hidden, className, coordinate, children }) {
     const wrapperStyle = css`
         width: 320px;
         box-sizing: border-box;
@@ -28,16 +28,11 @@ function Introduce({ img, name, desc, follower, like, hidden, className, coordin
         line-height: 20px;
         display: inline-block;
     `;
-    const imgStyle = css`
-        width: 32px;
-        border-radius: 50%;
-        height: 32px;
-    `;
     return !hidden ? (
         <div className={className} css={wrapperStyle} style={{ top: coordinate + "px" }}>
-            <div className="flex justify-between mb-3">
-                <img css={imgStyle} src={img} alt="image" />
-                <GeneralButton>Follow</GeneralButton>
+            <div className="flex justify-between mb-3 items-center">
+                {children[0]}
+                {children[1]}
             </div>
             <div>
                 <div>
@@ -56,15 +51,16 @@ function Introduce({ img, name, desc, follower, like, hidden, className, coordin
                 </div>
                 <p className="mt-2">
                     <span className="mr-3">
-                        <span css={followCount}>{follower + "M"}</span>
+                        <span css={followCount}>{handleShowCount(follower)}</span>
                         <span css={follwText}>Follwer</span>
                     </span>
                     <span className="mr-3">
-                        <span css={followCount}>{like + "M"}</span>
+                        <span css={followCount}>{handleShowCount(like)}</span>
                         <span css={follwText}>Thích</span>
                     </span>
                 </p>
             </div>
+            {children[2]}
         </div>
     ) : (
         <></>

@@ -1,5 +1,119 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import clsx from "clsx";
+
+import { GeneralButton, Avatar } from "../../components/GeneralComponent";
+import { Introduce, IntroduceFooter } from "../../components/SidebarComponent";
+import { Video } from "../../components/BodyComponent";
+import { videoTiktoks } from "../../components/GlobalVar";
+import scss from "./home.module.scss";
+
 function HomePage() {
-    return <h1>Home Page</h1>;
+    useEffect(() => {
+        const container = document.querySelectorAll(".avatarDivWrapper");
+        let TimeID;
+        for (const item of container) {
+            item.onmouseenter = () => {
+                clearTimeout(TimeID);
+                TimeID = setTimeout(() => {
+                    item.lastElementChild.style.display = "block";
+                    item.lastElementChild.style.opacity = "1";
+                }, 800);
+            };
+            item.onmouseleave = () => {
+                clearTimeout(TimeID);
+                TimeID = setTimeout(() => {
+                    item.lastElementChild.style.opacity = "0";
+                    setTimeout(() => {
+                        item.lastElementChild.style.display = "none";
+                    }, 200);
+                }, 400);
+            };
+        }
+    }, []);
+    return (
+        <div
+            className={scss.wrapperStyle}
+            css={css`
+                height: calc(100vh - 60px);
+            `}
+        >
+            {videoTiktoks.map((item, index) => {
+                return (
+                    <div key={index} className="py-5 flex border-b-slate-200 border-b border-b-solid h-full">
+                        <div className="h-fit mr-3 relative avatarDivWrapper">
+                            <Link to="/">
+                                <Avatar src={item.avatar} alt="avatar" wh="56px" className="max-w-fit" />
+                            </Link>
+                            <div
+                                className="absolute hidden"
+                                css={css`
+                                    display: none;
+                                    z-index: 10;
+                                    transition: opacity 200ms linear;
+                                `}
+                            >
+                                <Introduce
+                                    name="ndp_2002ndp_2002"
+                                    desc="some text"
+                                    follower={24424}
+                                    like={71931}
+                                    footer
+                                >
+                                    <Avatar src={item.avatar} wh="48px" alt="avatar" />
+                                    <GeneralButton
+                                        w="100px"
+                                        h="36px"
+                                        className={scss.followBtn}
+                                        bg="#fff"
+                                        color="var(--primary-color)"
+                                    >
+                                        Follow
+                                    </GeneralButton>
+                                    <IntroduceFooter>{item.footerNote}</IntroduceFooter>
+                                </Introduce>
+                            </div>
+                        </div>
+                        <div className="header flex flex-col relative">
+                            <div className="mr-28">
+                                <Link to="/" className="underline-none flex items-center gap-1 w-fit">
+                                    <h3 className="font-bold hover:underline">{item.accountName}</h3>
+                                    <h4 className="text-sm leading-7">{item.userName}</h4>
+                                </Link>
+                                <p>
+                                    <span className="text-sm mr-1">{item.desc}</span>
+                                    <span className="break-words">
+                                        {item.tags.map((elem, index) => (
+                                            <Link className={scss.tagStyle} to="/" key={index}>
+                                                {elem}
+                                            </Link>
+                                        ))}
+                                    </span>
+                                </p>
+                                {item.location ? <p>{item.location}</p> : null}
+                                <Link to="/" className="mt-1 mb-4 text-sm hover:underline block">
+                                    <i className="fa-solid fa-music mr-2 text-xs"></i>
+                                    <span>{item.bgMusic}</span>
+                                </Link>
+                                <GeneralButton
+                                    className={clsx("absolute top-0 right-0 mt-1.5", scss.followBtn)}
+                                    w="fit-content"
+                                    h="fit-content"
+                                    bg="#fff"
+                                    color="var(--primary-color)"
+                                >
+                                    Follow
+                                </GeneralButton>
+                            </div>
+                            <Video src={item.video} />
+                        </div>
+                    </div>
+                );
+            })}
+        </div>
+    );
 }
 
 export default HomePage;

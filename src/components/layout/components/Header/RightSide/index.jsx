@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unknown-property */
 /** @jsxImportSource @emotion/react */
 import clsx from "clsx";
 import { Link } from "react-router-dom";
@@ -40,6 +39,11 @@ function RightSide() {
             </Link>
             {/** Log in button */}
             <GeneralButton
+                css={css`
+                    &:hover {
+                        filter: brightness(0.9);
+                    }
+                `}
                 className="ml-4"
                 onClick={() => {
                     updateTitle(setTitle("Đăng nhập | TikTok"));

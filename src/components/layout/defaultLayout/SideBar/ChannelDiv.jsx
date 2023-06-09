@@ -2,10 +2,11 @@
 import { useEffect, useRef, useState } from "react";
 
 import { Introduce, Channel, SidebarTitle, Block } from "../../../SidebarComponent";
+import { GeneralButton, Avatar } from "../../../GeneralComponent";
 import { channels } from "../../../GlobalVar";
 import plaeholderImg from "../../../../assets/imgs/placeholder.jpeg";
 
-function ChannelBlock({ onToggleProfile, id, img, url, name, desc, profile, like = "807.1", follower = "9.2" }) {
+function ChannelBlock({ onToggleProfile, id, img, url, name, desc, profile, like = 524721839, follower = 9238149 }) {
     const channel = useRef();
     const [coordinate, setCoordinate] = useState(0);
     return (
@@ -22,13 +23,15 @@ function ChannelBlock({ onToggleProfile, id, img, url, name, desc, profile, like
                 coordinate={coordinate}
                 className="fixed"
                 hidden={profile !== id}
-                img={img}
                 url={url}
                 name={name}
                 desc={desc}
                 follower={follower}
                 like={like}
-            />
+            >
+                <Avatar src={img} wh="32px" alt="avatar" />
+                <GeneralButton>Follow</GeneralButton>
+            </Introduce>
         </li>
     );
 }
@@ -65,7 +68,7 @@ function ChannelDiv() {
         clearTimeout(timerID.current);
         timerID.current = setTimeout(() => {
             setProfile(value);
-        }, 800);
+        }, 1000);
     };
     const renderSome = () => {
         return channels.map((elem) => (

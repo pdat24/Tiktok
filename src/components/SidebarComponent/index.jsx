@@ -4,3 +4,4 @@ export { default as Introduce } from "./Introduce";
 export { default as Tag } from "./Tag";
 export { default as SidebarTitle } from "./Title";
 export { default as Block } from "./Block";
+export { default as IntroduceFooter } from "./IntroduceFooter";

@@ -4,6 +4,9 @@ import channel1 from "../../assets/imgs/channel1.jpeg";
 import channel2 from "../../assets/imgs/channel2.jpeg";
 import channel3 from "../../assets/imgs/channel3.jpeg";
 import channel4 from "../../assets/imgs/channel4.jpeg";
+import avatar from "../../assets/imgs/avatar.jpeg";
+import video1 from "../../assets/video.mp4";
+
 const QRCODE = "QR";
 const PERSONAL_INFO = "Personal Information";
 const FACEBOOK = "Facebook";
@@ -340,6 +343,64 @@ const info = [
     "Thêm",
 ];
 
+const videoTiktoks = [
+    {
+        avatar: avatar,
+        video: video1,
+        accountName: "ndp_2002ndp_2002",
+        userName: "Angel Girls",
+        desc: "Có công mài sắt có ngày có em😋",
+        tags: ["#tiktokvn", "#xuhuong", "#gcent", "#iing"],
+        bgMusic: "Nhạc nền - original sound",
+        location: null,
+        footerNote: "Booking: trucmayofficial@gmail.com Mua nước hoa ghé giỏ hàng phía dưới nha 👇",
+    },
+    {
+        avatar: avatar,
+        video: video1,
+        accountName: "ndp_2002ndp_2002",
+        userName: "Angel Girls",
+        desc: "Có công mài sắt có ngày có em😋",
+        tags: ["#tiktokvn", "#xuhuong", "#gcent", "#iing"],
+        bgMusic: "Nhạc nền - original sound",
+        location: null,
+        footerNote: "Booking: trucmayofficial@gmail.com Mua nước hoa ghé giỏ hàng phía dưới nha 👇",
+    },
+    {
+        avatar: avatar,
+        video: video1,
+        accountName: "ndp_2002ndp_2002",
+        userName: "Angel Girls",
+        desc: "Có công mài sắt có ngày có em😋",
+        tags: ["#tiktokvn", "#xuhuong", "#gcent", "#iing"],
+        bgMusic: "Nhạc nền - original sound",
+        location: null,
+        footerNote: "Booking: trucmayofficial@gmail.com Mua nước hoa ghé giỏ hàng phía dưới nha 👇",
+    },
+    {
+        avatar: avatar,
+        video: video1,
+        accountName: "ndp_2002ndp_2002",
+        userName: "Angel Girls",
+        desc: "Có công mài sắt có ngày có em😋",
+        tags: ["#tiktokvn", "#xuhuong", "#gcent", "#iing"],
+        bgMusic: "Nhạc nền - original sound",
+        location: null,
+        footerNote: "Booking: trucmayofficial@gmail.com Mua nước hoa ghé giỏ hàng phía dưới nha 👇",
+    },
+    {
+        avatar: avatar,
+        video: video1,
+        accountName: "ndp_2002ndp_2002",
+        userName: "Angel Girls",
+        desc: "Có công mài sắt có ngày có em😋",
+        tags: ["#tiktokvn", "#xuhuong", "#gcent", "#iing"],
+        bgMusic: "Nhạc nền - original sound",
+        location: null,
+        footerNote: "Booking: trucmayofficial@gmail.com Mua nước hoa ghé giỏ hàng phía dưới nha 👇",
+    },
+];
+
 export {
     platforms,
     langs,
@@ -355,4 +416,5 @@ export {
     channels,
     tags,
     info,
+    videoTiktoks,
 };

@@ -1,0 +1,25 @@
+.wrapperStyle {
+    font-family: "IBM Plex Sans";
+    margin: auto;
+    width: 624px;
+}
+.tagStyle {
+    display: inline-block;
+    color: #2b5db9;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 4px;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+.followBtn {
+    border: 1px solid var(--primary-color);
+    font-weight: bold;
+    min-height: 28px;
+    min-width: 88px;
+    &:hover {
+        background-color: var(--primary-color-hover);
+    }
+}
