@@ -401,6 +401,111 @@ const videoTiktoks = [
     },
 ];
 
+const videoInFollowingPage = [
+    {
+        accountName: "theanh28entertainment",
+        userName: "Theanh28 Entertainment",
+        avatar: channelImage,
+        video: video1,
+    },
+    {
+        accountName: "hoaa.hanassii",
+        userName: "Đào Lê Phương Hoa",
+        avatar: channel1,
+        video: video1,
+    },
+    {
+        accountName: "cciinnn",
+        userName: "CiiN",
+        avatar: channel2,
+        video: video1,
+    },
+    {
+        accountName: "vtv24news",
+        userName: "VTV24",
+        avatar: channel3,
+        video: video1,
+    },
+    {
+        accountName: "vienvibi_899",
+        userName: "Viên Vibi",
+        avatar: channel4,
+        video: video1,
+    },
+    {
+        accountName: "ndp_2002ndp_2002",
+        userName: "Angel Girls",
+        avatar: avatar,
+        video: video1,
+    },
+    {
+        accountName: "ndp_2002ndp_2002",
+        userName: "Angel Girls",
+        avatar: avatar,
+        video: video1,
+    },
+    {
+        accountName: "ndp_2002ndp_2002",
+        userName: "Angel Girls",
+        avatar: avatar,
+        video: video1,
+    },
+    {
+        accountName: "ndp_2002ndp_2002",
+        userName: "Angel Girls",
+        avatar: avatar,
+        video: video1,
+    },
+    {
+        accountName: "ndp_2002ndp_2002",
+        userName: "Angel Girls",
+        avatar: avatar,
+        video: video1,
+    },
+    {
+        accountName: "ndp_2002ndp_2002",
+        userName: "Angel Girls",
+        avatar: avatar,
+        video: video1,
+    },
+    {
+        accountName: "ndp_2002ndp_2002",
+        userName: "Angel Girls",
+        avatar: avatar,
+        video: video1,
+    },
+    {
+        accountName: "ndp_2002ndp_2002",
+        userName: "Angel Girls",
+        avatar: avatar,
+        video: video1,
+    },
+    {
+        accountName: "ndp_2002ndp_2002",
+        userName: "Angel Girls",
+        avatar: avatar,
+        video: video1,
+    },
+    {
+        accountName: "ndp_2002ndp_2002",
+        userName: "Angel Girls",
+        avatar: avatar,
+        video: video1,
+    },
+    {
+        accountName: "ndp_2002ndp_2002",
+        userName: "Angel Girls",
+        avatar: avatar,
+        video: video1,
+    },
+    {
+        accountName: "ndp_2002ndp_2002",
+        userName: "Angel Girls",
+        avatar: avatar,
+        video: video1,
+    },
+];
+
 export {
     platforms,
     langs,
@@ -417,4 +522,5 @@ export {
     tags,
     info,
     videoTiktoks,
+    videoInFollowingPage,
 };

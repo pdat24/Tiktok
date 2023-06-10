@@ -1,0 +1,42 @@
+.wrapperStyle {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 720px;
+    padding: 20px 0;
+    gap: 18px;
+    font-family: "IBM Plex Sans";
+}
+.infoDiv {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    color: #fff;
+    padding: 30px 12px 20px;
+}
+.followBtnStyle {
+    min-width: 164px;
+    min-height: 36px;
+    font-size: 18px;
+    line-height: 25px;
+    padding: 6px 8px;
+}
+.videoItems {
+    position: relative;
+    width: 226px;
+    height: 302px;
+}
+@media (min-width: 1036px) {
+    .wrapperStyle {
+        width: 720px;
+    }
+}
+
+@media (max-width: 1035px) and (min-width: 860px) {
+    .wrapperStyle {
+        width: 494px;
+    }
+}

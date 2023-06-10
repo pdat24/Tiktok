@@ -8,9 +8,7 @@ function DefaultLayout({ children }) {
             <Header />
             <div id={scss["container"]}>
                 <SideBar />
-                <div id="bodyContentContainer" className="ml-60">
-                    {children}
-                </div>
+                <div className="ml-60">{children}</div>
             </div>
         </div>
     );

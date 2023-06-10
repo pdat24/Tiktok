@@ -55,7 +55,14 @@ function Video({ src, className }) {
         <div {...className}>
             <div className={"flex w-fit mx-auto"}>
                 <div ref={videoWrapper} className="mr-5 relative cursor-pointer">
-                    <video onPause={pause_} ref={videoDOM} width="256px" src={src} className="rounded-lg"></video>
+                    <video
+                        loading="lazy"
+                        onPause={pause_}
+                        ref={videoDOM}
+                        width="256px"
+                        src={src}
+                        className="rounded-lg"
+                    ></video>
                     <div className="absolute bottom-0 flex w-full pb-5 px-3 justify-between">
                         <i ref={playBtn} css={controlBTnStyle} className="fa-solid fa-play invisible"></i>
                         <i ref={muteBtn} css={controlBTnStyle} className="fa-solid fa-volume-high"></i>
