@@ -52,7 +52,7 @@ function Introduce({ name, desc, follower, like, hidden, className, coordinate, 
                 <p className="mt-2">
                     <span className="mr-3">
                         <span css={followCount}>{handleShowCount(follower)}</span>
-                        <span css={follwText}>Follwer</span>
+                        <span css={follwText}>Follower</span>
                     </span>
                     <span className="mr-3">
                         <span css={followCount}>{handleShowCount(like)}</span>

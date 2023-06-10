@@ -39,12 +39,7 @@ function RightSide() {
             </Link>
             {/** Log in button */}
             <GeneralButton
-                css={css`
-                    &:hover {
-                        filter: brightness(0.9);
-                    }
-                `}
-                className="ml-4"
+                className="ml-4 hover:brightness"
                 onClick={() => {
                     updateTitle(setTitle("Đăng nhập | TikTok"));
                     handleOpen({

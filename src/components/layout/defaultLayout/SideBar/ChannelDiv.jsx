@@ -30,7 +30,7 @@ function ChannelBlock({ onToggleProfile, id, img, url, name, desc, profile, like
                 like={like}
             >
                 <Avatar src={img} wh="32px" alt="avatar" />
-                <GeneralButton>Follow</GeneralButton>
+                <GeneralButton className="hover:brightness">Follow</GeneralButton>
             </Introduce>
         </li>
     );

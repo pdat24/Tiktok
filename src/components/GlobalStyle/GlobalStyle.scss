@@ -46,3 +46,8 @@ body {
     top: 0;
     bottom: 0;
 }
+.hover\:brightness {
+    &:hover {
+        filter: brightness(0.9);
+    }
+}

@@ -1,8 +1,10 @@
+/* eslint-disable react-refresh/only-export-components */
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import handleShowCount from "./handelShowCount";
+import { forwardRef } from "react";
 
-function ClipButton({ className, count }) {
+function ClipButton({ className, count }, ref) {
     const style = css`
         display: flex;
         align-items: center;
@@ -21,11 +23,11 @@ function ClipButton({ className, count }) {
         text-align: center;
     `;
     return (
-        <div className="flex flex-col gap-2 cursor-pointer">
+        <div ref={ref} className="flex flex-col gap-2 cursor-pointer">
             <i css={style} className={className}></i>
             <div css={textStyle}>{handleShowCount(count)}</div>
         </div>
     );
 }
 
-export default ClipButton;
+export default forwardRef(ClipButton);
