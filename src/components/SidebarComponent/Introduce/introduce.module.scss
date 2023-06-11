@@ -1,0 +1,24 @@
+.wrapperStyle {
+    width: 320px;
+    box-sizing: border-box;
+    padding: 20px;
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 16px;
+    border-radius: 8px;
+    display: inline-block;
+    z-index: 99;
+    transition: opacity 200ms linear;
+}
+.followCount {
+    font-weight: 700;
+    margin-right: 6px;
+    font-size: 17px;
+    line-height: 20px;
+    display: inline-block;
+}
+.follwText {
+    color: rgba(22, 24, 35, 0.75);
+    font-size: 17px;
+    line-height: 20px;
+    display: inline-block;
+}

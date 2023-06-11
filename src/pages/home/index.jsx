@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
 import clsx from "clsx";
 
 import { GeneralButton, Avatar, BlueTags } from "../../components/GeneralComponent";
@@ -11,47 +10,29 @@ import { videoTiktoks } from "../../components/GlobalVar";
 import scss from "./home.module.scss";
 
 function AvatarDiv({ channel }) {
-    const avatarDivWrapper = useRef();
-    useEffect(() => {
-        let TimeID;
-        avatarDivWrapper.current.onmouseenter = () => {
-            clearTimeout(TimeID);
-            TimeID = setTimeout(() => {
-                avatarDivWrapper.current.lastElementChild.style.display = "block";
-                avatarDivWrapper.current.lastElementChild.style.opacity = "1";
-            }, 800);
-        };
-        avatarDivWrapper.current.onmouseleave = () => {
-            clearTimeout(TimeID);
-            TimeID = setTimeout(() => {
-                avatarDivWrapper.current.lastElementChild.style.opacity = "0";
-                setTimeout(() => {
-                    avatarDivWrapper.current.lastElementChild.style.display = "none";
-                }, 200);
-            }, 400);
-        };
-    }, []);
     return (
-        <div ref={avatarDivWrapper} className="h-fit mr-3 relative">
+        <div className="h-fit mr-3 relative avatarDivInHome">
             <Link to="/">
                 <Avatar src={channel.avatar} alt="avatar" wh="56px" className="max-w-fit" />
             </Link>
-            <div
-                className="absolute hidden"
+            <Introduce
                 css={css`
                     display: none;
-                    z-index: 10;
-                    transition: opacity 200ms linear;
+                    position: absolute;
                 `}
+                triggerClassName={"avatarDivInHome"}
+                name={channel.accountName}
+                desc={channel.userName}
+                follower={24424}
+                like={71931}
+                footer="true"
             >
-                <Introduce name={channel.accountName} desc="some text" follower={24424} like={71931} footer>
-                    <Avatar src={channel.avatar} wh="48px" alt="avatar" />
-                    <GeneralButton w="100px" h="36px" className={scss.followBtn} bg="#fff" color="var(--primary-color)">
-                        Follow
-                    </GeneralButton>
-                    <IntroduceFooter>{channel.footerNote}</IntroduceFooter>
-                </Introduce>
-            </div>
+                <Avatar src={channel.avatar} wh="48px" alt="avatar" />
+                <GeneralButton w="100px" h="36px" className={scss.followBtn} bg="#fff" color="var(--primary-color)">
+                    Follow
+                </GeneralButton>
+                <IntroduceFooter>{channel.footerNote}</IntroduceFooter>
+            </Introduce>
         </div>
     );
 }

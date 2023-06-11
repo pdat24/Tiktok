@@ -1,0 +1,29 @@
+.mainSide {
+    width: 100%;
+}
+
+.commentSide {
+    width: 341px;
+}
+
+.videoHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    background: #fff;
+    padding: 0px 16px 0px 4px;
+    position: relative;
+    border-right: 1px solid rgba(34, 90, 89, 0.2);
+    border-bottom: 1px solid rgba(34, 90, 89, 0.2);
+    border-left: 1px solid rgba(34, 90, 89, 0.2);
+}
+.ellipsisBtn {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 8px 0;
+    transform: translateX(-80%);
+    top: 120%;
+}

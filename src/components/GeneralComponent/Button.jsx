@@ -9,10 +9,10 @@ function GeneralButton({ children, ...args }) {
         font-weight: bold;
         padding: 0 4px;
         border-radius: 4px;
-        background-color: ${({ bg }) => (!bg ? "var(--primary-color)" : bg)};
-        color: ${({ color }) => (!color ? "#fff" : color)};
-        width: ${({ w }) => (w ? w : "110px")};
-        height: ${({ h }) => (h ? h : "36px")};
+        background-color: ${({ bg }) => bg || "var(--primary-color)"};
+        color: ${({ color }) => color || "#fff"};
+        width: ${({ w }) => w || "110px"};
+        height: ${({ h }) => h || "36px"};
     `;
     return <Button {...args}>{children}</Button>;
 }

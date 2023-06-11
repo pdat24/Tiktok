@@ -8,7 +8,7 @@ function NameChannel({ children, ...rest }) {
         max-width: ${({ maxW }) => maxW};
         font-size: ${({ fs }) => fs};
         font-weight: 600;
-        color: ${({ color }) => (color ? color : "#161823")};
+        color: ${({ color }) => color || "#161823"};
         font-family: IBM;
     `;
     return <Name {...rest}>{children}</Name>;

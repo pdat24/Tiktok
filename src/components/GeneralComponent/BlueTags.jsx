@@ -6,9 +6,9 @@ function BlueTags({ family, size, children, ...attrs }) {
     const componentStyle = css`
         display: inline-block;
         color: #2b5db9;
-        font-family: ${family ? family : "sans-serif"};
+        font-family: ${family || "sans-serif"};
         font-weight: bold;
-        font-size: ${size ? size : "16px"};
+        font-size: ${size || "16px"};
         &:hover {
             text-decoration: underline;
         }
