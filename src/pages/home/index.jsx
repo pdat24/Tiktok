@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import clsx from "clsx";
 
-import { GeneralButton, Avatar } from "../../components/GeneralComponent";
+import { GeneralButton, Avatar, BlueTags } from "../../components/GeneralComponent";
 import { Introduce, IntroduceFooter } from "../../components/SidebarComponent";
 import { Video } from "../../components/BodyComponent";
 import { videoTiktoks } from "../../components/GlobalVar";
@@ -79,9 +79,9 @@ function HomePage() {
                                     <span className="text-sm mr-1">{item.desc}</span>
                                     <span className="break-words">
                                         {item.tags.map((elem, index) => (
-                                            <Link className={scss.tagStyle} to="/" key={index}>
+                                            <BlueTags className="mr-1" to="/" key={index}>
                                                 {elem}
-                                            </Link>
+                                            </BlueTags>
                                         ))}
                                     </span>
                                 </p>
@@ -100,7 +100,13 @@ function HomePage() {
                                     Follow
                                 </GeneralButton>
                             </div>
-                            <Video src={item.video} />
+                            <Video
+                                src={item.video}
+                                like={item.like}
+                                share={item.share}
+                                save={item.save}
+                                comment={item.comment}
+                            />
                         </div>
                     </div>
                 );

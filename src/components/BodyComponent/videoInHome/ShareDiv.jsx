@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import { useEffect, useRef, useState } from "react";
 import ClipButton from "../ClipButton";
 
-function ShareDiv() {
+function ShareDiv({ count }) {
     const Expand = () => {
         const [hidden, setHidden] = useState(true);
         useEffect(() => {
@@ -103,7 +103,7 @@ function ShareDiv() {
                 </LiShare>
                 <Expand />
             </UlShareDiv>
-            <ClipButton count={234} className="fa-solid fa-share" />
+            <ClipButton count={count} icon="fa-solid fa-share" />
         </div>
     );
 }

@@ -4,7 +4,7 @@ import { css } from "@emotion/react";
 import handleShowCount from "./handelShowCount";
 import { forwardRef } from "react";
 
-function ClipButton({ className, count }, ref) {
+function ClipButton({ count, icon, ...attrs }, ref) {
     const style = css`
         display: flex;
         align-items: center;
@@ -13,7 +13,7 @@ function ClipButton({ className, count }, ref) {
         background-color: #eee;
         border-radius: 50%;
         font-size: 20px;
-        color: #333;
+        transition: background-color 100ms, color 100ms;
     `;
     const textStyle = css`
         color: rgba(22, 24, 35, 0.75);
@@ -22,9 +22,15 @@ function ClipButton({ className, count }, ref) {
         font-weight: bold;
         text-align: center;
     `;
+    const wrapper = css`
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        cursor: pointer;
+    `;
     return (
-        <div ref={ref} className="flex flex-col gap-2 cursor-pointer">
-            <i css={style} className={className}></i>
+        <div ref={ref} {...attrs} css={wrapper}>
+            <i css={style} className={icon}></i>
             <div css={textStyle}>{handleShowCount(count)}</div>
         </div>
     );

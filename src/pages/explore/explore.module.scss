@@ -1,0 +1,39 @@
+.categoryDivWrapper {
+    position: fixed;
+    overflow: hidden;
+    top: 60px;
+    width: calc(100vw - 240px - 96px);
+    transition: top 0.4s ease 0s;
+}
+.moveSlideButton {
+    position: absolute;
+    z-index: 1;
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: #0000001f 0 2px 12px;
+    font-size: 20px;
+    color: #16182399;
+    font-weight: bold;
+}
+.videoContainer {
+    font-family: IBM Plex sans-serif;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+    gap: 24px 16px;
+}
+.likeDiv {
+    font-weight: bold;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    color: #16182399;
+    cursor: pointer;
+}
+.videoStyle {
+    max-height: 444px;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 8px;
+}

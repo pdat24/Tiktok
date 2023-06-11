@@ -1,10 +1,22 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { ClipButton } from "..";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import ShareDiv from "./ShareDiv";
+import clsx from "clsx";
 
-function Video({ src, className }) {
+function LikeButton({ like }) {
+    const [liked, setliked] = useState(false);
+    return (
+        <ClipButton
+            onClick={() => setliked(!liked)}
+            count={like}
+            icon={clsx({ "text-white bg-primary": liked }, "fa-solid fa-heart")}
+        />
+    );
+}
+
+function Video({ src, className, like, share, comment, save }) {
     const videoWrapper = useRef();
     const videoDOM = useRef();
     const playBtn = useRef();
@@ -69,10 +81,10 @@ function Video({ src, className }) {
                     </div>
                 </div>
                 <div className="flex flex-col gap-2.5 self-end">
-                    <ClipButton count={1923410} className="fa-solid fa-heart" />
-                    <ClipButton count={1191} className="fa-solid fa-comment-dots" />
-                    <ClipButton count={2078} className="fa-solid fa-bookmark" />
-                    <ShareDiv />
+                    <LikeButton like={like} />
+                    <ClipButton count={comment} icon="fa-solid fa-comment-dots" />
+                    <ClipButton count={save} icon="fa-solid fa-bookmark" />
+                    <ShareDiv count={share} />
                 </div>
             </div>
         </div>

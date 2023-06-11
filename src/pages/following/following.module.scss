@@ -1,8 +1,10 @@
 .wrapperStyle {
     margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    width: 720px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(226px, 1fr));
+    width: auto;
+    max-width: 720px;
+    justify-items: center;
     padding: 20px 0;
     gap: 18px;
     font-family: "IBM Plex Sans";
@@ -26,17 +28,16 @@
 }
 .videoItems {
     position: relative;
-    width: 226px;
     height: 302px;
 }
-@media (min-width: 1036px) {
-    .wrapperStyle {
-        width: 720px;
-    }
-}
+// @media (min-width: 1036px) {
+//     .wrapperStyle {
+//         width: 720px;
+//     }
+// }
 
-@media (max-width: 1035px) and (min-width: 860px) {
-    .wrapperStyle {
-        width: 494px;
-    }
-}
+// @media (max-width: 1035px) and (min-width: 780px) {
+//     .wrapperStyle {
+//         width: 494px;
+//     }
+// }
