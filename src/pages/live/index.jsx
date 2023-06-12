@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import scss from "./Live.module.scss";
 import { videoInLivePage } from "../../components/GlobalVar";
-import ActiveVideoDiv from "./activeVideoDiv";
+import ActiveVideoDiv from "./ActiveVideoDiv";
 
 function LivePage() {
     const proposeChannels = [];
@@ -18,7 +18,11 @@ function LivePage() {
                             proposeChannels.push(<div></div>);
                         }
                     })}
-                    <div></div>
+                    <div>
+                        <div>
+                            
+                        </div>
+                    </div>
                     <div></div>
                     <div>{proposeChannels}</div>
                 </div>

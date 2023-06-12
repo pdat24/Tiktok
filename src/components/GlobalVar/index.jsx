@@ -7,6 +7,16 @@ import channel4 from "../../assets/imgs/channel4.jpeg";
 import avatar from "../../assets/imgs/avatar.jpeg";
 import video1 from "../../assets/video.mp4";
 import girlImage from "../../assets/imgs/beautyGirl.jpg";
+import banh from "../../assets/imgs/banh.png"
+import game from "../../assets/imgs/game.png"
+import GG from "../../assets/imgs/gg.png"
+import hoa from "../../assets/imgs/hoa.png"
+import kem from "../../assets/imgs/kem.png"
+import nuochoa from "../../assets/imgs/nuochoa.png"
+import thaTim from "../../assets/imgs/thatim.png"
+import tiktokImgGift from "../../assets/imgs/tikokicon.png"
+import voSo from "../../assets/imgs/voso.png"
+
 
 const QRCODE = "QR";
 const PERSONAL_INFO = "Personal Information";
@@ -774,6 +784,54 @@ const videoInLivePage = [
     },
 ];
 
+const giftsInLivePage = [
+    {
+        img: banh,
+        name: "Bánh vòng",
+        score: 30
+    },
+    {
+        img: hoa,
+        name: "hoa hồng",
+        score: 1
+    },
+    {
+        img: tiktokImgGift,
+        name: "Bánh vòng",
+        score: 30
+    },
+    {
+        img: kem,
+        name: "Bánh vòng",
+        score: 30
+    },
+    {
+        img: game,
+        name: "Bánh vòng",
+        score: 30
+    },
+    {
+        img: banh,
+        name: "Bánh vòng",
+        score: 30
+    },
+    {
+        img: banh,
+        name: "Bánh vòng",
+        score: 30
+    },
+    {
+        img: banh,
+        name: "Bánh vòng",
+        score: 30
+    },
+    {
+        img: banh,
+        name: "Bánh vòng",
+        score: 30
+    },
+]
+
 export {
     platforms,
     langs,
@@ -793,4 +851,5 @@ export {
     videoInFollowingPage,
     filterInExplorePage,
     videoInLivePage,
+    giftsInLivePage
 };
