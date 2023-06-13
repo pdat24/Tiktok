@@ -54,10 +54,10 @@ function HomePage() {
                             <div className="mr-28">
                                 <Link to="/" className="underline-none flex items-center gap-1 w-fit">
                                     <h3 className="font-bold hover:underline">{item.accountName}</h3>
-                                    <h4 className="text-sm leading-7">{item.userName}</h4>
+                                    <h4 className="text-sm leading-7 font-medium">{item.userName}</h4>
                                 </Link>
                                 <p>
-                                    <span className="text-sm mr-1">{item.desc}</span>
+                                    <span className="text-sm mr-1 font-medium">{item.desc}</span>
                                     <span className="break-words">
                                         {item.tags.map((elem, index) => (
                                             <BlueTags className="mr-1" to="/" key={index}>
@@ -67,7 +67,7 @@ function HomePage() {
                                     </span>
                                 </p>
                                 {item.location ? <p>{item.location}</p> : null}
-                                <Link to="/" className="mt-1 mb-4 text-sm hover:underline block w-fit">
+                                <Link to="/" className="mt-1 mb-4 text-sm hover:underline block w-fit font-medium">
                                     <i className="fa-solid fa-music mr-2 text-xs"></i>
                                     <span>{item.bgMusic}</span>
                                 </Link>

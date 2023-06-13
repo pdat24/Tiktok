@@ -1,9 +1,9 @@
-function handleHover({ parent, target, startTime, endTime }) {
+function handleHover({ parent, target, startTime, endTime, initialDisplay }) {
     let TimeID;
     parent.onmouseenter = () => {
         clearTimeout(TimeID);
         TimeID = setTimeout(() => {
-            target.style.display = "block";
+            target.style.display = initialDisplay || "block";
             target.style.opacity = "1";
         }, startTime);
     };

@@ -13,7 +13,7 @@ function BackButton({ onModal }) {
     `;
     return (
         <div onClick={() => onModal(LOGIN_MODAL)} css={style}>
-            <i className="fa-solid fa-less-than"></i>
+            <i className="fa-solid fa-chevron-left"></i>
         </div>
     );
 }

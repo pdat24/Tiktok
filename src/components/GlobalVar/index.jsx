@@ -7,16 +7,15 @@ import channel4 from "../../assets/imgs/channel4.jpeg";
 import avatar from "../../assets/imgs/avatar.jpeg";
 import video1 from "../../assets/video.mp4";
 import girlImage from "../../assets/imgs/beautyGirl.jpg";
-import banh from "../../assets/imgs/banh.png"
-import game from "../../assets/imgs/game.png"
-import GG from "../../assets/imgs/gg.png"
-import hoa from "../../assets/imgs/hoa.png"
-import kem from "../../assets/imgs/kem.png"
-import nuochoa from "../../assets/imgs/nuochoa.png"
-import thaTim from "../../assets/imgs/thatim.png"
-import tiktokImgGift from "../../assets/imgs/tikokicon.png"
-import voSo from "../../assets/imgs/voso.png"
-
+import banh from "../../assets/imgs/banh.png";
+import game from "../../assets/imgs/game.png";
+import GG from "../../assets/imgs/gg.png";
+import hoa from "../../assets/imgs/hoa.png";
+import kem from "../../assets/imgs/kem.png";
+import nuochoa from "../../assets/imgs/nuochoa.png";
+import thaTim from "../../assets/imgs/thatim.png";
+import tiktokImgGift from "../../assets/imgs/tikokicon.png";
+import voSo from "../../assets/imgs/voso.png";
 
 const QRCODE = "QR";
 const PERSONAL_INFO = "Personal Information";
@@ -666,7 +665,7 @@ const videoInLivePage = [
         accountName: "ndp_2002ndp_2002",
         userName: "Angel Girls",
         desc: "Tặng quà + miễn ship sale",
-        avatar: avatar,
+        avatar: channelImage,
         video: video1,
         viewer: 2517,
         like: 1628471,
@@ -678,7 +677,7 @@ const videoInLivePage = [
         accountName: "ndp_2002ndp_2002",
         userName: "Angel Girls",
         desc: "Tặng quà + miễn ship sale",
-        avatar: avatar,
+        avatar: channel1,
         video: video1,
         viewer: 2517,
         like: 1628471,
@@ -690,7 +689,31 @@ const videoInLivePage = [
         accountName: "ndp_2002ndp_2002",
         userName: "Angel Girls",
         desc: "Tặng quà + miễn ship sale",
-        avatar: avatar,
+        avatar: channel2,
+        video: video1,
+        viewer: 2517,
+        like: 1628471,
+        follower: 562749,
+        image: girlImage,
+        active: false,
+    },
+    {
+        accountName: "ndp_2002ndp_2002",
+        userName: "Angel Girls",
+        desc: "Tặng quà + miễn ship sale",
+        avatar: channel3,
+        video: video1,
+        viewer: 2517,
+        like: 1628471,
+        follower: 562749,
+        image: girlImage,
+        active: false,
+    },
+    {
+        accountName: "ndp_2002ndp_2002",
+        userName: "Angel Girls",
+        desc: "Tặng quà + miễn ship sale",
+        avatar: channel4,
         video: video1,
         viewer: 2517,
         like: 1628471,
@@ -788,49 +811,74 @@ const giftsInLivePage = [
     {
         img: banh,
         name: "Bánh vòng",
-        score: 30
+        coin: 2,
     },
     {
         img: hoa,
         name: "hoa hồng",
-        score: 1
+        coin: 1,
     },
     {
         img: tiktokImgGift,
-        name: "Bánh vòng",
-        score: 30
+        name: "Tiktok",
+        coin: 1,
     },
     {
         img: kem,
-        name: "Bánh vòng",
-        score: 30
+        name: "Kem",
+        coin: 1,
     },
     {
         img: game,
         name: "Bánh vòng",
-        score: 30
+        coin: 5,
     },
     {
-        img: banh,
-        name: "Bánh vòng",
-        score: 30
+        img: voSo,
+        name: "Vỏ sò",
+        coin: 5,
     },
     {
-        img: banh,
-        name: "Bánh vòng",
-        score: 30
+        img: nuochoa,
+        name: "Nước hoa",
+        coin: 10,
     },
     {
-        img: banh,
-        name: "Bánh vòng",
-        score: 30
+        img: thaTim,
+        name: "Thả tim",
+        coin: 20,
     },
     {
-        img: banh,
-        name: "Bánh vòng",
-        score: 30
+        img: GG,
+        name: "GG",
+        coin: 30,
     },
-]
+];
+
+const tiktokCoinIcon = (
+    <svg
+        width="20"
+        data-e2e=""
+        height="20"
+        viewBox="0 0 48 48"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ marginLeft: "8px" }}
+    >
+        <circle cx="24" cy="24" r="22" fill="#FFEC9B"></circle>
+        <circle cx="24" cy="24" r="17" fill="#FACE15"></circle>
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M40.9347 25.5C40.9779 25.0058 41 24.5055 41 24C41 14.6112 33.3888 7 24 7C14.6112 7 7 14.6112 7 24C7 24.5055 7.02206 25.0058 7.06527 25.5C7.82466 16.8137 15.1166 10 24 10C32.8834 10 40.1753 16.8137 40.9347 25.5Z"
+            fill="#FABC15"
+        ></path>
+        <path
+            d="M33 19C30.2041 19 27.9375 16.7614 27.9375 14H24.5625V27.6111C24.5625 29.2986 23.1774 30.6667 21.4688 30.6667C19.7601 30.6667 18.375 29.2986 18.375 27.6111C18.375 25.9236 19.7601 24.5556 21.4688 24.5556C21.722 24.5556 21.9659 24.5853 22.1981 24.6406C22.2365 24.6497 22.2747 24.6596 22.3125 24.6701V21.2763C22.0358 21.2406 21.7541 21.2222 21.4688 21.2222C17.8962 21.2222 15 24.0826 15 27.6111C15 31.1396 17.8962 34 21.4688 34C25.0413 34 27.9375 31.1396 27.9375 27.6111V20.6673C29.3477 21.7134 31.1005 22.3333 33 22.3333V19Z"
+            fill="#FEF5CD"
+        ></path>
+    </svg>
+);
 
 export {
     platforms,
@@ -851,5 +899,6 @@ export {
     videoInFollowingPage,
     filterInExplorePage,
     videoInLivePage,
-    giftsInLivePage
+    giftsInLivePage,
+    tiktokCoinIcon,
 };

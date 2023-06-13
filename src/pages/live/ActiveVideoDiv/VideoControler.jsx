@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import scss from "../Live.module.scss";
 import { useEffect, useRef, useState } from "react";
+import clsx from "clsx";
 
 // style
 const controlsStyle = css`
@@ -42,8 +43,8 @@ function VideoControler({ className, ...attrs }) {
         } else wrapper.current.previousElementSibling.muted = false;
     }, [mute]);
     return (
-        <div {...attrs} ref={wrapper} className={"absolute w-full h-full text-white top-0 " + className}>
-            <div className={scss.liveLabel}>LIVE</div>
+        <div {...attrs} ref={wrapper} className={"absolute w-full h-full text-white top-0 " + (className || "")}>
+            <div className={clsx(scss.liveLabel, " top-4 right-4 absolute")}>LIVE</div>
             <div css={controlsStyle}>
                 <div>
                     {playing ? (

@@ -14,11 +14,11 @@ function MoreVertMenu({ showLangs, onShowLangs }) {
     const handleToggleLang = () => onShowLangs(!showLangs);
     const NormalMenu = () => {
         return (
-            <>
+            <div>
                 {/** language options */}
                 <LangPickerOpenner onToggleLang={handleToggleLang} />
                 {/** move on feedback page */}
-                <li className={scss["more-vert-items"]}>
+                <li className={clsx(scss["more-vert-items"], "font-bold")}>
                     <div className={scss["more-vert-icon"]}>
                         <span className="material-symbols-outlined">help</span>
                         <span>Phản hồi và trợ giúp</span>
@@ -26,7 +26,7 @@ function MoreVertMenu({ showLangs, onShowLangs }) {
                 </li>
                 {/** trigger shortcut modal */}
                 <li
-                    className={scss["more-vert-items"]}
+                    className={clsx(scss["more-vert-items"], "font-bold")}
                     onClick={() =>
                         handleOpen({
                             container: document.getElementById("shortcutModel"),
@@ -41,7 +41,7 @@ function MoreVertMenu({ showLangs, onShowLangs }) {
                 </li>
                 {/** theme switcher */}
                 <ThemeSwitcher />
-            </>
+            </div>
         );
     };
     return (

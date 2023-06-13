@@ -59,7 +59,7 @@ function ExplorePage() {
                     <div key={videoIndex}>
                         <VideoDiv element={elem} />
                         <div className="pt-1 pb-2 text-sm">
-                            <h4 className="overflow-hidden mt-1 text-ellipsis">
+                            <h4 className="overflow-hidden mt-1 text-ellipsis font-medium">
                                 {elem.desc}
                                 <span className="ml-1">
                                     {elem.tags.map((tagName, tagIndex) => (
@@ -72,7 +72,7 @@ function ExplorePage() {
                             <div className="flex justify-between mt-2">
                                 <div className="flex items-center">
                                     <Avatar src={elem.avatar} alt="avatar" wh="24px" />
-                                    <Link to="/" className="text-sm mx-1 hover:underline">
+                                    <Link to="/" className="text-sm mx-1 hover:underline font-bold">
                                         {elem.accountName}
                                     </Link>
                                 </div>

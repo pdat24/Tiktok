@@ -49,14 +49,15 @@ function Introduce({
             </div>
             <div>
                 <div>
-                    <ChannelName className="flex items-center gap-1" fs="16px" maxW="240px">
+                    <ChannelName className="font-bold flex items-center gap-1 hover:underline" fs="16px" maxW="240px">
                         <Link to="/">{name}</Link>
                         {TickIcon}
                     </ChannelName>
                     <p
                         css={css`
                             font-size: 14px;
-                            font-family: IBM;
+                            font-family: IBM PLex Sans;
+                            font-weight: 500;
                         `}
                     >
                         <Link to="/">{desc}</Link>

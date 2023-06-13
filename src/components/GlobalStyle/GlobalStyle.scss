@@ -1,6 +1,6 @@
 // @import "normalize.css";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
 $header-h: 60px;
 
 :root {
@@ -17,7 +17,7 @@ $header-h: 60px;
 }
 
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto", "IBM Plex Sans", sans-serif;
     font-size: 16px;
     margin: 0;
     box-sizing: border-box;
@@ -55,4 +55,7 @@ body {
     &:hover {
         filter: brightness(0.9);
     }
+}
+.color-gray {
+    color: #16182380;
 }

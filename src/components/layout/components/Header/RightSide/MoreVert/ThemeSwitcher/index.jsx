@@ -38,7 +38,7 @@ function ThemeSwitcher() {
     const updateTheme = useDispatch();
     return (
         <li
-            className={clsx(scss["more-vert-items"], "flex", "items-center", "justify-between", "cursor-pointer")}
+            className={clsx(scss["more-vert-items"], "flex", "items-center", "justify-between", "cursor-pointer", "font-bold")}
             onClick={() => updateTheme(setTheme())}
         >
             <div className={clsx(scss["more-vert-icon"], "flex", "gap-2")}>

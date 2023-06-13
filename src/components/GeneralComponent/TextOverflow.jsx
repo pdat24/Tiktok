@@ -1,13 +1,6 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
-
-function TextOverflow({ children, ...attrs }) {
-    const style = css`
-        overflow: hidden;
-        text-overflow: ellipsis;
-    `;
+function TextOverflow({ children, className, ...attrs }) {
     return (
-        <h3 {...attrs} css={style}>
+        <h3 {...attrs} className={"text-ellipsis overflow-hidden " + className}>
             {children}
         </h3>
     );

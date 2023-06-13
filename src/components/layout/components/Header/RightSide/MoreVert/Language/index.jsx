@@ -24,10 +24,7 @@ function LanguagesPicker({ onHide }) {
                     "border-slate-200"
                 )}
             >
-                <i
-                    className={clsx("fa-solid", "fa-less-than", "mx-3", "py-1.5", "px-2", "cursor-pointer")}
-                    onClick={onHide}
-                ></i>
+                <i className={"fa-solid fa-chevron-left mx-3 py-1.5 px-2 cursor-pointer"} onClick={onHide}></i>
                 <h3 className={clsx(scss["langs-header"], "font-bold", "self-end")}>Ngôn ngữ</h3>
             </li>
             {/** render avaiable languages */}
@@ -53,7 +50,7 @@ function LanguagesPicker({ onHide }) {
 function LangPickerOpenner({ onToggleLang }) {
     const language = useSelector((state) => state.root.language);
     return (
-        <li className={scss["more-vert-items"]} onClick={onToggleLang}>
+        <li className={clsx(scss["more-vert-items"], "font-bold")} onClick={onToggleLang}>
             <div className={scss["more-vert-icon"]}>
                 <span className="material-symbols-outlined">explicit</span>
                 <span>{language}</span>
