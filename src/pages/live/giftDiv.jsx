@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { GeneralButton } from "../../components/GeneralComponent";
 import scss from "./Live.module.scss";
 
-function GiftDiv({ gift, className, ...attrs }) {
+function GiftDiv({ gift, className, onClick, ...attrs }) {
     const [showSendBtn, setShowSendBtn] = useState(false);
     return (
         <div
@@ -15,6 +15,7 @@ function GiftDiv({ gift, className, ...attrs }) {
             onMouseLeave={() => setShowSendBtn(false)}
         >
             <img
+                alt="gift image"
                 css={css`
                     width: 48px;
                     height: 48px;
@@ -32,7 +33,7 @@ function GiftDiv({ gift, className, ...attrs }) {
                         invisible: !showSendBtn,
                     })}
                 >
-                    <GeneralButton w="80px" h="24px" className="text-sm hover:brightness font-medium">
+                    <GeneralButton onClick={onClick} w="80px" h="24px" className="text-sm hover:brightness font-medium">
                         Gửi
                     </GeneralButton>
                 </div>

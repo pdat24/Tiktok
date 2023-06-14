@@ -1,5 +1,7 @@
 .mainSide {
     width: 100%;
+    height: calc(100vh - 60px);
+    overflow: hidden;
 }
 .videoHeader {
     display: flex;
@@ -40,7 +42,8 @@
 }
 .proposeChannelsDiv {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
     gap: 24px;
 }
 .forwardButton {
@@ -67,4 +70,12 @@
     height: 24px;
     display: flex;
     align-items: center;
+}
+.leftSideContainer {
+    height: 100%;
+    overflow: auto;
+    flex: 1 1 auto;
+}
+.leftSideContainer::-webkit-scrollbar {
+    display: none;
 }

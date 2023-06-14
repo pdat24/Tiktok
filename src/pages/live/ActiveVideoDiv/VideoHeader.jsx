@@ -41,6 +41,12 @@ function EllipsisButton({ ...attrs }) {
 }
 
 function VideoHeader({ target }) {
+    const openBoxChatIcon = useRef();
+    useEffect(() => {
+        window.addEventListener("closedLiveBoxChat", () => {
+            openBoxChatIcon.current.style.display = "inline-flex";
+        });
+    }, []);
     const generalBtnStyle = {
         w: "34px",
         h: "34px",
@@ -48,12 +54,16 @@ function VideoHeader({ target }) {
         color: "#333",
         className: "mr-1 border-slate-200 border-solid border",
     };
+    const handleOpenBox = (e) => {
+        e.target.style.display = "none";
+        document.getElementById("liveChatBox").style.width = "400px";
+    };
     return (
         <div className={scss.videoHeader}>
             <div className="flex items-center">
                 <div className="avatarDivInLivePage">
                     <Link to="/">
-                        <Avatar className="mx-3" wh="41px" src={target.avatar} />
+                        <Avatar alt="avatar" className="mx-3" wh="41px" src={target.avatar} />
                     </Link>
                     <Introduce
                         startTime={10}
@@ -93,6 +103,20 @@ function VideoHeader({ target }) {
                 <GeneralButton h="34px" w="95px" className="hover:brightness">
                     Follow
                 </GeneralButton>
+                <i
+                    ref={openBoxChatIcon}
+                    css={css`
+                        width: 34px;
+                        height: 34px;
+                        display: none;
+                        align-items: center;
+                        justify-content: center;
+                        margin-left: 16px;
+                        cursor: pointer;
+                    `}
+                    className="fa-sharp fa-solid fa-arrow-right-from-bracket fa-rotate-180"
+                    onClick={handleOpenBox}
+                ></i>
             </div>
         </div>
     );

@@ -13,5 +13,6 @@ module.exports = {
         "react-refresh/only-export-components": "warn",
         "react/no-unknown-property": ["error", { ignore: ["css"] }],
         "react/prop-types": 0,
+        "react-hooks/exhaustive-deps": 0
     },
 };

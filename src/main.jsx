@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
@@ -10,13 +10,13 @@ import "./index.css";
 import "./assets/fonts/fontawesome/css/all.min.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <Provider store={store}>
-                <GlobalStyle>
-                    <App />
-                </GlobalStyle>
-            </Provider>
-        </BrowserRouter>
-    </React.StrictMode>
+    // <React.StrictMode>
+    <BrowserRouter>
+        <Provider store={store}>
+            <GlobalStyle>
+                <App />
+            </GlobalStyle>
+        </Provider>
+    </BrowserRouter>
+    // </React.StrictMode>
 );

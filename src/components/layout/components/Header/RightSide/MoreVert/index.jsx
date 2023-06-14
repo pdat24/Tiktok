@@ -14,7 +14,7 @@ function MoreVertMenu({ showLangs, onShowLangs }) {
     const handleToggleLang = () => onShowLangs(!showLangs);
     const NormalMenu = () => {
         return (
-            <div>
+            <>
                 {/** language options */}
                 <LangPickerOpenner onToggleLang={handleToggleLang} />
                 {/** move on feedback page */}
@@ -41,7 +41,7 @@ function MoreVertMenu({ showLangs, onShowLangs }) {
                 </li>
                 {/** theme switcher */}
                 <ThemeSwitcher />
-            </div>
+            </>
         );
     };
     return (

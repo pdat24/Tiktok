@@ -17,18 +17,22 @@ function ProposedVideo({ item }) {
             initialDisplay: "flex",
         });
     }, []);
-    const imageStyle = css`
-        max-height: 160px;
-        margin: 0 auto;
-    `;
     return (
         <div>
-            <div ref={layerContainer} className="relative overflow-hidden rounded cursor-pointer">
+            <div
+                ref={layerContainer}
+                className="relative overflow-hidden rounded cursor-pointer"
+                css={css`
+                    min-height: 150px;
+                    aspect-ratio: 16 / 9;
+                `}
+            >
                 <div ref={layer} className={scss.layerVideoDiv}>
                     <i className="fa-solid fa-play text-2xl text-white"></i>
                 </div>
-                <img src={item.image} css={imageStyle} />
+                <img alt="image" src={item.image} className="m-auto h-full" />
                 <img
+                    alt="image"
                     src={item.image}
                     className="bg-cover absolute top-0 blur-2xl"
                     css={css`

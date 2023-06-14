@@ -18,7 +18,7 @@ function GiftAndCoinDiv() {
                     <button className={clsx(scss.forwardButton, "left-0 hover:bg-slate-100")}>
                         <i className="fa-solid fa-chevron-left"></i>
                     </button>
-                    <div className="grow">
+                    <div className="grow shrink basis-auto overflow-hidden">
                         <div className="relative flex pt-1.5 pb-1">
                             {giftsInLivePage.map((gift, index) => (
                                 <GiftDiv
@@ -46,30 +46,32 @@ function LivePage() {
     const proposeChannels = [];
     return (
         <div className={clsx(scss.mainSide, "relative flex")}>
-            <div className="grow w-min">
-                <div>
-                    {videoInLivePage.map((item, index) => {
-                        if (item.active) {
-                            return <ActiveVideoDiv key={index} object={item} />;
-                        } else {
-                            proposeChannels.push(<ProposedVideo key={index} item={item} />);
-                        }
-                    })}
-                </div>
-                <GiftAndCoinDiv />
-                <hr />
-                <div className="mx-6">
-                    <h2
-                        css={css`
-                            margin: 24px 0 16px;
-                            font-weight: bold;
-                            font-family: "IBM Plex Sans";
-                            font-size: 20px;
-                        `}
-                    >
-                        LIVE videos đề xuất
-                    </h2>
-                    <div className={scss.proposeChannelsDiv}>{proposeChannels}</div>
+            <div className={scss.leftSideContainer}>
+                <div className="overflow-auto">
+                    <div>
+                        {videoInLivePage.map((item, index) => {
+                            if (item.active) {
+                                return <ActiveVideoDiv key={index} object={item} />;
+                            } else {
+                                proposeChannels.push(<ProposedVideo key={index} item={item} />);
+                            }
+                        })}
+                    </div>
+                    <GiftAndCoinDiv />
+                    <hr />
+                    <div className="mx-6">
+                        <h2
+                            css={css`
+                                margin: 24px 0 16px;
+                                font-weight: bold;
+                                font-family: "IBM Plex Sans";
+                                font-size: 20px;
+                            `}
+                        >
+                            LIVE videos đề xuất
+                        </h2>
+                        <div className={scss.proposeChannelsDiv}>{proposeChannels}</div>
+                    </div>
                 </div>
             </div>
             <LiveComment />

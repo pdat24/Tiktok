@@ -7,15 +7,14 @@ function ActiveVideoDiv({ object }) {
     return (
         <div>
             <VideoHeader target={object} />
-            <div className="bg-black relative">
-                <video
-                    css={css`
-                        max-height: 442px;
-                        min-height: 300px;
-                        margin: 0 auto;
-                    `}
-                    src={object.video}
-                ></video>
+            <div
+                className="bg-black relative"
+                css={css`
+                    min-height: 300px;
+                    aspect-ratio: 16 /9;
+                `}
+            >
+                <video className="m-auto h-full" src={object.video}></video>
                 <VideoControler />
             </div>
         </div>

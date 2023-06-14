@@ -1,11 +1,13 @@
 .commentSide {
     height: calc(100vh - 60px);
-    width: 341px;
+    width: 400px;
     box-shadow: rgba(0, 0, 0, 0.12) -2px 0px 4px;
     min-height: 520px;
     position: relative;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    transition: width 400ms cubic-bezier(0.33, 0.86, 0.2, 1);
 }
 .header {
     border-bottom: 0.5px solid rgba(22, 24, 35, 0.2);
@@ -49,4 +51,12 @@
     width: 22px;
     height: 22px;
     margin-left: 8px;
+}
+@keyframes swipeUp {
+    from {
+        transform: translateY(32px);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
