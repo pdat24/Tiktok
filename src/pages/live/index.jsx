@@ -12,6 +12,9 @@ import defaultAvatar from "../../assets/imgs/defaultAvatar.webp";
 import { useSelector } from "react-redux";
 
 function GiftAndCoinDiv() {
+    const giftBlock = useRef();
+    const btnUp = useRef();
+    const btnDown = useRef();
     const [totalCoin, setTotalCoin] = useState(0);
     const sender = useSelector((states) => states.root.accountName.name);
     const amountSentGift = useRef({
@@ -39,22 +42,53 @@ function GiftAndCoinDiv() {
             })
         );
     };
+    const handleSwipeUp = () => {
+        const style = window.getComputedStyle(giftBlock.current);
+        giftBlock.current.style.top = parseFloat(style.top) + 100 + "px";
+        setTimeout(() => {
+            if (parseFloat(style.top) === 0) btnUp.current.style.visibility = "hidden";
+            btnDown.current.style.visibility = "visible";
+        }, 210);
+    };
+    const handlePullDown = () => {
+        const style = window.getComputedStyle(giftBlock.current);
+        giftBlock.current.style.top = parseFloat(style.top) - 100 + "px";
+        setTimeout(() => {
+            if (parseFloat(style.top) == 100 - parseFloat(style.height)) btnDown.current.style.visibility = "hidden";
+            btnUp.current.style.visibility = "visible";
+        }, 210);
+    };
     return (
         <>
             <div className="pt-1.5 pb-1">
-                <div className="flex gap-3">
-                    <button className={clsx(scss.forwardButton, "left-0 hover:bg-slate-100")}>
-                        <i className="fa-solid fa-chevron-left"></i>
+                <div className="flex">
+                    <button
+                        ref={btnUp}
+                        onClick={handleSwipeUp}
+                        className={clsx(scss.forwardButton, "right-0 hover:bg-slate-100 invisible")}
+                    >
+                        <i className="fa-solid fa-chevron-up"></i>
                     </button>
-                    <div className="grow shrink basis-auto overflow-hidden">
-                        <div className="relative flex pt-1.5 pb-1">
+                    <div className={scss.giftItemsWrapper}>
+                        <div ref={giftBlock} className={scss.giftBlock}>
                             {giftsInLivePage.map((gift, index) => (
-                                <GiftDiv onClick={() => handleSendGift(gift)} key={index} gift={gift} />
+                                <GiftDiv
+                                    css={css`
+                                        height: 100px;
+                                    `}
+                                    onClick={() => handleSendGift(gift)}
+                                    key={index}
+                                    gift={gift}
+                                />
                             ))}
                         </div>
                     </div>
-                    <button className={clsx(scss.forwardButton, "right-0 hover:bg-slate-100")}>
-                        <i className="fa-solid fa-chevron-right"></i>
+                    <button
+                        ref={btnDown}
+                        onClick={handlePullDown}
+                        className={clsx(scss.forwardButton, "left-0 hover:bg-slate-100")}
+                    >
+                        <i className="fa-solid fa-chevron-down"></i>
                     </button>
                 </div>
             </div>

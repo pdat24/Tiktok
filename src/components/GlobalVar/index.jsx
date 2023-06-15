@@ -853,6 +853,81 @@ const giftsInLivePage = [
         name: "Thiên nga",
         coin: 30,
     },
+    {
+        img: nuochoa,
+        name: "Bướm xanh",
+        coin: 10,
+    },
+    {
+        img: thaTim,
+        name: "Thả tim",
+        coin: 20,
+    },
+    {
+        img: GG,
+        name: "Thiên nga",
+        coin: 30,
+    },
+    {
+        img: nuochoa,
+        name: "Bướm xanh",
+        coin: 10,
+    },
+    {
+        img: thaTim,
+        name: "Thả tim",
+        coin: 20,
+    },
+    {
+        img: GG,
+        name: "Thiên nga",
+        coin: 30,
+    },
+    {
+        img: banh,
+        name: "Hạc giấy",
+        coin: 2,
+    },
+    {
+        img: hoa,
+        name: "Hoa hồng",
+        coin: 1,
+    },
+    {
+        img: tiktokImgGift,
+        name: "Tiktok",
+        coin: 2,
+    },
+    {
+        img: kem,
+        name: "Bao tay",
+        coin: 1,
+    },
+    {
+        img: game,
+        name: "Pháo tiệc",
+        coin: 5,
+    },
+    {
+        img: voSo,
+        name: "Nước hoa",
+        coin: 5,
+    },
+    {
+        img: kem,
+        name: "Bao tay",
+        coin: 1,
+    },
+    {
+        img: game,
+        name: "Pháo tiệc",
+        coin: 5,
+    },
+    {
+        img: voSo,
+        name: "Nước hoa",
+        coin: 5,
+    },
 ];
 
 const tiktokCoinIcon = (

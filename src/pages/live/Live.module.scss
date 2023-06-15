@@ -74,8 +74,24 @@
 .leftSideContainer {
     height: 100%;
     overflow: auto;
-    flex: 1 1 auto;
+    flex: 1 2 auto;
 }
 .leftSideContainer::-webkit-scrollbar {
     display: none;
+}
+.giftItemsWrapper {
+    position: relative;
+    height: 100px;
+    overflow: hidden;
+    flex: 1 1 auto;
+}
+.giftBlock {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 96px);
+    width: 100%;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    margin-top: 6px;
+    transition: top 200ms ease-in-out;
 }
