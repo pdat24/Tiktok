@@ -77,7 +77,7 @@ function VideoHeader({ target }) {
                         follower={244424}
                         like={721931}
                     >
-                        <Avatar wh="41px" src={target.avatar} />
+                        <Avatar alt="avatar" wh="41px" src={target.avatar} />
                         <GeneralButton className="hover:brightness">Follow</GeneralButton>
                     </Introduce>
                 </div>

@@ -39,7 +39,7 @@ function EnterCommentDiv({ onAddComment }) {
             newName && dispatch(setAccountName({ name: newName, default: false }));
         }
         if (newName || !accountName.default) {
-            const accName = accountName.default ? newName : accountName.name;
+            const accName = accountName.default || newName ? newName : accountName.name;
             onAddComment((prevComments) => {
                 prevComments.push(
                     <CommentComponent key={`@cmt${prevComments.length}`} msg={comment} accountName={accName} />

@@ -1,0 +1,20 @@
+@import "../Live.module.scss";
+
+.controlsStyle {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+    position: absolute;
+    bottom: 0;
+    padding: 0 8px 8px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.expandVideo {
+    aspect-ratio: unset !important;
+    position: fixed !important;
+    z-index: 100000 !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+}

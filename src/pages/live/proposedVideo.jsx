@@ -20,6 +20,7 @@ function ProposedVideo({ item }) {
     return (
         <div>
             <div
+                title={item.desc}
                 ref={layerContainer}
                 className="relative overflow-hidden rounded cursor-pointer"
                 css={css`
@@ -47,7 +48,7 @@ function ProposedVideo({ item }) {
                 </div>
             </div>
             <div className="flex mt-2 items-center">
-                <Avatar wh="32px" src={item.avatar} />
+                <Avatar alt="avatar" wh="32px" src={item.avatar} />
                 <div className="ml-3">
                     <TextOverflow
                         className="text-gray font-bold"

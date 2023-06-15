@@ -8,6 +8,7 @@ function ActiveVideoDiv({ object }) {
         <div>
             <VideoHeader target={object} />
             <div
+                id="livePage/activeVideoContainer"
                 className="bg-black relative"
                 css={css`
                     min-height: 300px;
