@@ -14,7 +14,7 @@ function LiveComment({ className, ...attrs }) {
                     detail: { accountName: "@user_tiktok", msg: "Some new comment...❤️❤️❤️", delegate: true },
                 })
             );
-        }, 8000);
+        }, 5000);
         return () => clearInterval(timeID);
     }, []);
     const [liveComments, setLiveComments] = useState([

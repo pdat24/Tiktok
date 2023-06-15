@@ -1,7 +1,8 @@
+/* eslint-disable react-refresh/only-export-components */
 // /** @jsxImportSource @emotion/react */
 // import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import { TitleDiv } from "../../../components/GeneralComponent";
 import scss from "./activeVideoDiv.module.scss";
@@ -62,7 +63,7 @@ function ZoomScreen() {
     );
 }
 
-function VideoControler({ className, ...attrs }) {
+function VideoController({ className, ...attrs }) {
     const [playing, setPlaying] = useState(false);
     const [mute, setMute] = useState(false);
     const wrapper = useRef();
@@ -119,4 +120,4 @@ function VideoControler({ className, ...attrs }) {
     );
 }
 
-export default VideoControler;
+export default memo(VideoController);

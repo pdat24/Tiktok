@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { Introduce } from "../../../components/SidebarComponent";
@@ -5,7 +6,7 @@ import handelShowCount from "../../../components/BodyComponent/handelShowCount";
 import { Link } from "react-router-dom";
 import { Avatar, GeneralButton, TextOverflow } from "../../../components/GeneralComponent";
 import handleHover from "../../../components/GeneralComponent/handleHover";
-import { useEffect, useRef } from "react";
+import { memo, useEffect, useRef } from "react";
 import clsx from "clsx";
 import scss from "../Live.module.scss";
 
@@ -122,4 +123,4 @@ function VideoHeader({ target }) {
     );
 }
 
-export default VideoHeader;
+export default memo(VideoHeader);

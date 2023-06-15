@@ -7,10 +7,38 @@ import LiveComment from "./LiveComments";
 import ActiveVideoDiv from "./ActiveVideoDiv";
 import ProposedVideo from "./proposedVideo";
 import GiftDiv from "./giftDiv";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import defaultAvatar from "../../assets/imgs/defaultAvatar.webp";
+import { useSelector } from "react-redux";
 
 function GiftAndCoinDiv() {
     const [totalCoin, setTotalCoin] = useState(0);
+    const sender = useSelector((states) => states.root.accountName.name);
+    const amountSentGift = useRef({
+        "Hạc giấy": 0,
+        "Hoa hồng": 0,
+        Tiktok: 0,
+        "Pháo tiệc": 0,
+        "Bao tay": 0,
+        "Nước hoa": 0,
+        "Bướm xanh": 0,
+        "Thả tim": 0,
+        "Thiên nga": 0,
+    });
+    const handleSendGift = (gift) => {
+        setTotalCoin((prev) => prev + gift.coin);
+        window.dispatchEvent(
+            new CustomEvent("sentAGift", {
+                detail: {
+                    avatar: defaultAvatar,
+                    name: gift.name,
+                    image: gift.img,
+                    time: ++amountSentGift.current[gift.name],
+                    sender,
+                },
+            })
+        );
+    };
     return (
         <>
             <div className="pt-1.5 pb-1">
@@ -21,11 +49,7 @@ function GiftAndCoinDiv() {
                     <div className="grow shrink basis-auto overflow-hidden">
                         <div className="relative flex pt-1.5 pb-1">
                             {giftsInLivePage.map((gift, index) => (
-                                <GiftDiv
-                                    onClick={() => setTotalCoin((prev) => prev + gift.coin)}
-                                    key={index}
-                                    gift={gift}
-                                />
+                                <GiftDiv onClick={() => handleSendGift(gift)} key={index} gift={gift} />
                             ))}
                         </div>
                     </div>

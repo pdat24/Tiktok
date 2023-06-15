@@ -810,37 +810,37 @@ const videoInLivePage = [
 const giftsInLivePage = [
     {
         img: banh,
-        name: "Bánh vòng",
+        name: "Hạc giấy",
         coin: 2,
     },
     {
         img: hoa,
-        name: "hoa hồng",
+        name: "Hoa hồng",
         coin: 1,
     },
     {
         img: tiktokImgGift,
         name: "Tiktok",
-        coin: 1,
+        coin: 2,
     },
     {
         img: kem,
-        name: "Kem",
+        name: "Bao tay",
         coin: 1,
     },
     {
         img: game,
-        name: "Bánh vòng",
+        name: "Pháo tiệc",
         coin: 5,
     },
     {
         img: voSo,
-        name: "Vỏ sò",
+        name: "Nước hoa",
         coin: 5,
     },
     {
         img: nuochoa,
-        name: "Nước hoa",
+        name: "Bướm xanh",
         coin: 10,
     },
     {
@@ -850,7 +850,7 @@ const giftsInLivePage = [
     },
     {
         img: GG,
-        name: "GG",
+        name: "Thiên nga",
         coin: 30,
     },
 ];
