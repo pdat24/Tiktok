@@ -16,7 +16,7 @@ function LikeButton({ like }) {
     );
 }
 
-function Video({ src, className, like, share, comment, save }) {
+function Video({ src, className, like, share, comment, save, ...attrs }) {
     const videoWrapper = useRef();
     const videoDOM = useRef();
     const playBtn = useRef();
@@ -64,16 +64,15 @@ function Video({ src, className, like, share, comment, save }) {
         transition: opacity 200ms linear;
     `;
     return (
-        <div {...className}>
-            <div className={"flex w-fit mx-auto"}>
+        <div className={className} {...attrs}>
+            <div className="flex w-fit mx-auto h-full justify-center">
                 <div ref={videoWrapper} className="mr-5 relative cursor-pointer">
                     <video
                         loading="lazy"
                         onPause={pause_}
                         ref={videoDOM}
-                        width="256px"
                         src={src}
-                        className="rounded-lg"
+                        className="rounded-lg h-full w-full"
                     ></video>
                     <div className="absolute bottom-0 flex w-full pb-5 px-3 justify-between">
                         <i ref={playBtn} css={controlBTnStyle} className="fa-solid fa-play invisible"></i>

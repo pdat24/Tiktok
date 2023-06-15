@@ -82,6 +82,7 @@ function HomePage() {
                                 </GeneralButton>
                             </div>
                             <Video
+                                className="overflow-hidden"
                                 src={item.video}
                                 like={item.like}
                                 share={item.share}

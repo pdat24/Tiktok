@@ -44,9 +44,11 @@ function EllipsisButton({ ...attrs }) {
 function VideoHeader({ target }) {
     const openBoxChatIcon = useRef();
     useEffect(() => {
-        window.addEventListener("closedLiveBoxChat", () => {
+        const handler = () => {
             openBoxChatIcon.current.style.display = "inline-flex";
-        });
+        };
+        window.addEventListener("closedLiveBoxChat", handler);
+        return () => window.removeEventListener("closedLiveBoxChat", handler);
     }, []);
     const generalBtnStyle = {
         w: "34px",
