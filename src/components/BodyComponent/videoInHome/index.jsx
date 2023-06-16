@@ -6,10 +6,10 @@ import ShareDiv from "./ShareDiv";
 import clsx from "clsx";
 
 function LikeButton({ like }) {
-    const [liked, setliked] = useState(false);
+    const [liked, setLiked] = useState(false);
     return (
         <ClipButton
-            onClick={() => setliked(!liked)}
+            onClick={() => setLiked(!liked)}
             count={like}
             icon={clsx({ "text-white bg-primary": liked }, "fa-solid fa-heart")}
         />
@@ -68,6 +68,7 @@ function Video({ src, className, like, share, comment, save, ...attrs }) {
             <div className="flex w-fit mx-auto h-full justify-center">
                 <div ref={videoWrapper} className="mr-5 relative cursor-pointer">
                     <video
+                        onEnded={play_}
                         loading="lazy"
                         onPause={pause_}
                         ref={videoDOM}

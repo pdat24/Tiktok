@@ -29,11 +29,15 @@ function CategoryButtons() {
 function FilterBar() {
     const filterDivWrapper = useRef();
     useEffect(() => {
-        const container = document.getElementById("explorePageContainer");
-        container.onscroll = () => {
+        const handler = () => {
             if (container.scrollTop > 84) {
                 filterDivWrapper.current.style.top = "-24px";
             } else filterDivWrapper.current.style.top = "60px";
+        };
+        const container = document.getElementById("explorePageContainer");
+        container.addEventListener("scroll", handler);
+        return () => {
+            container.removeEventListener("scroll", handler);
         };
     }, []);
     const itemsWrapper = useRef();

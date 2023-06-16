@@ -1,10 +1,10 @@
 import clsx from "clsx";
+import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { videoInFollowingPage } from "../../components/GlobalVar";
 import { Avatar, GeneralButton } from "../../components/GeneralComponent";
 import scss from "./following.module.scss";
 import playWhenEnter from "../../components/GeneralComponent/playWhenEnter";
-import { Link } from "react-router-dom";
 
 function FollowPage() {
     const ChildElement = ({ item }) => {

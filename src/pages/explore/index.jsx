@@ -3,7 +3,8 @@ import { css } from "@emotion/react";
 import { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 
-import { Avatar, BlueTags } from "../../components/GeneralComponent";
+import { Avatar, BlueTags, ScrollToTopBtn } from "../../components/GeneralComponent";
+import handleScrollTop from "../../components/GeneralComponent/handleScrollTop";
 import playWhenEnter from "../../components/GeneralComponent/playWhenEnter";
 import scss from "./explore.module.scss";
 import { videoTiktoks } from "../../components/GlobalVar";
@@ -12,6 +13,8 @@ import { Link } from "react-router-dom";
 import FilterBar from "./FilterBar";
 
 function ExplorePage() {
+    const wrapper = useRef();
+    const scrollBtn = useRef();
     const LikeDiv = ({ count }) => {
         const [liked, setLiked] = useState(false);
         return (
@@ -44,10 +47,14 @@ function ExplorePage() {
             </Link>
         );
     };
+    useEffect(() => {
+        handleScrollTop({ target: wrapper.current, trigger: scrollBtn.current });
+    }, []);
     return (
         <div
+            ref={wrapper}
             id="explorePageContainer"
-            className="pt-24 px-12 pb-8 bg-white"
+            className="pt-24 px-12 pb-8 bg-white scroll-smooth"
             css={css`
                 height: calc(100vh - 60px);
                 overflow-y: auto;
@@ -82,6 +89,7 @@ function ExplorePage() {
                     </div>
                 ))}
             </div>
+            <ScrollToTopBtn ref={scrollBtn} onClick={() => (wrapper.current.scrollTop = 0)} />
         </div>
     );
 }

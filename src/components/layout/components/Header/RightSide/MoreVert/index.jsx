@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
-
+import { Link } from "react-router-dom";
 import scss from "./MoreVert.module.scss";
 import { LangPickerOpenner, LanguagesPicker } from "./Language";
 import ThemeSwitcher from "./ThemeSwitcher";
@@ -21,7 +21,7 @@ function MoreVertMenu({ showLangs, onShowLangs }) {
                 <li className={clsx(scss["more-vert-items"], "font-bold")}>
                     <div className={scss["more-vert-icon"]}>
                         <span className="material-symbols-outlined">help</span>
-                        <span>Phản hồi và trợ giúp</span>
+                        <Link to="/feedBack">Phản hồi và trợ giúp</Link>
                     </div>
                 </li>
                 {/** trigger shortcut modal */}

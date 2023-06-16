@@ -955,6 +955,40 @@ const tiktokCoinIcon = (
     </svg>
 );
 
+const feedBackSelection = [
+    "My Account & Settings",
+    "Creator tools",
+    "Creator tools",
+    "Video and Sound",
+    "Follow/Like/Comment",
+    "Notifications/messages",
+    "LIVE",
+    "Abuse Report",
+    "TikTok Balance",
+    "Not Responding/Lagging/Other",
+];
+
+const feedBackOften = [
+    "How to log in",
+    "This phone number is already registered",
+    "Why couldn't I complete the payment?",
+    "Why didn't I receive my coins after making a payment?",
+];
+
+const feedBackPageData = {
+    Company: ["About", "Newsroom", "Contact", "Careers", "ByteDance"],
+    Programs: ["TikTok for Good", "Advertise", "Developers", "TikTok Rewards", "TikTok Embeds"],
+    Support: [
+        "Help Center",
+        "Safety Center",
+        "Creator Portal",
+        "Community Guidelines",
+        "Transparency",
+        "Accessibility",
+    ],
+    Legal: ["Terms of Use", "Privacy Policy"],
+};
+
 export {
     platforms,
     langs,
@@ -976,4 +1010,7 @@ export {
     videoInLivePage,
     giftsInLivePage,
     tiktokCoinIcon,
+    feedBackSelection,
+    feedBackOften,
+    feedBackPageData,
 };
