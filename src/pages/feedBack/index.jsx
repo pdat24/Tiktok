@@ -1,14 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { feedBackOften, feedBackSelection, feedBackPageData } from "../../components/GlobalVar";
+import { feedBackOften, feedBackSelection } from "../../components/GlobalVar";
 import scss from "./feedBack.module.scss";
 import appstore from "../../assets/imgs/appStore.png";
 import amazon from "../../assets/imgs/amazon.png";
 import chplay from "../../assets/imgs/chplay.png";
 import microsoft from "../../assets/imgs/microsoft.png";
 import QRLetter from "../../assets/imgs/QRLetter.png";
-import logo from "../../assets/imgs/blackLogo.png";
+import { PageFooter } from "../../components/GeneralComponent";
 
 function Selection({ children }) {
     return (
@@ -30,7 +30,6 @@ const PlatformImage = styled.img`
 `;
 
 function Feedback() {
-    const keys = ["Company", "Programs", "Support", "Legal"];
     return (
         <div className={scss.wrapper}>
             <div className={scss.bodyWrapper}>
@@ -87,54 +86,7 @@ function Feedback() {
                         <PlatformImage alt="playforms" src={chplay} />
                     </div>
                 </div>
-                <div className={scss.footerInfo}>
-                    <img src={logo} alt="logo" className={scss.footerLogo} />
-                    {keys.map((items, index) => (
-                        <div
-                            key={index}
-                            className="w-full"
-                            css={css`
-                                max-width: 240px;
-                            `}
-                        >
-                            <h3 className={scss.categoryHeader}>{items}</h3>
-                            <div className={scss.category}>
-                                {feedBackPageData[items].map((item, test) => (
-                                    <a href="/" className="w-fit block py-1 hover:underline" key={test}>
-                                        {item}
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-                <div className={scss.endDiv}>
-                    <div className="text-white border border-solid border-white px-2 py-1">
-                        <select
-                            className="bg-inherit text-sm"
-                            css={css`
-                                background-color: inherit;
-                                font-size: 14px;
-                                min-width: 120px;
-                                outline: none;
-                            `}
-                        >
-                            <option className="text-black">English</option>
-                            <option className="text-black">Tiếng Việt</option>
-                            <option className="text-black">Chinese</option>
-                            <option className="text-black">Spanish</option>
-                            <option className="text-black">French</option>
-                            <option className="text-black">Korean</option>
-                        </select>
-                    </div>
-                    <div
-                        css={css`
-                            color: #aaa;
-                        `}
-                    >
-                        © 2023 TikTok
-                    </div>
-                </div>
+                <PageFooter />
             </div>
         </div>
     );

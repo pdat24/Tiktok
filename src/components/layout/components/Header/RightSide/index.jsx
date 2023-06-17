@@ -7,11 +7,12 @@ import scss from "./RightSide.module.scss";
 import MoreVert from "./MoreVert";
 import handleOpen from "../../../../ModalComponent/handleOpen";
 import { GeneralButton } from "../../../../GeneralComponent";
+import InboxDiv from "./InboxBox";
 
 // main
 function RightSide() {
     return (
-        <div className={"flex items-flex"}>
+        <div className={"flex items-center"}>
             {/** Upload button */}
             <Link
                 to="/upload"
@@ -39,7 +40,7 @@ function RightSide() {
             >
                 <span className={clsx("mx-2", "font-bold")}>Đăng nhập</span>
             </GeneralButton>
-            <i className="fa-solid fa-message-lines"></i>
+            <InboxDiv />
             <MoreVert />
         </div>
     );

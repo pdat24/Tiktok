@@ -5,7 +5,7 @@ function handleHover({ parent, target, startTime, endTime, initialDisplay }) {
         TimeID = setTimeout(() => {
             target.style.display = initialDisplay || "block";
             target.style.opacity = "1";
-        }, startTime);
+        }, startTime || 10);
     };
     parent.onmouseleave = () => {
         clearTimeout(TimeID);
@@ -14,7 +14,7 @@ function handleHover({ parent, target, startTime, endTime, initialDisplay }) {
             setTimeout(() => {
                 target.style.display = "none";
             }, 200);
-        }, endTime);
+        }, endTime || 10);
     };
 }
 
