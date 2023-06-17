@@ -1,9 +1,9 @@
-import { Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
 import { createPortal } from "react-dom";
 import { useSelector } from "react-redux";
 import HomePageRouter from "./routes/Home";
 import HomePage from "./pages/home";
-import { DefaultLayout, NoneLayout } from "./components/layout";
+import { DefaultLayout } from "./components/layout";
 
 function App() {
     return (
@@ -20,7 +20,14 @@ function App() {
                     }
                 />
                 {/** children of home page */}
-                <Route path="/" element={<NoneLayout />}>
+                <Route
+                    path="/"
+                    element={
+                        <>
+                            <Outlet />
+                        </>
+                    }
+                >
                     <Route path=":homePageParam" element={<HomePageRouter />} />
                 </Route>
             </Routes>

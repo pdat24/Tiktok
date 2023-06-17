@@ -39,6 +39,7 @@ function RightSide() {
             >
                 <span className={clsx("mx-2", "font-bold")}>Đăng nhập</span>
             </GeneralButton>
+            <i className="fa-solid fa-message-lines"></i>
             <MoreVert />
         </div>
     );

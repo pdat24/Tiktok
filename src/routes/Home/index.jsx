@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { useParams } from "react-router-dom";
 import ExplorePage from "../../pages/explore";
 import FollowPage from "../../pages/following";
@@ -5,7 +6,8 @@ import Feedback from "../../pages/feedBack";
 import LivePage from "../../pages/live";
 import VideoFullPage from "../../pages/videoFull";
 import PageNotFound from "../../pages/pageNotFound";
-import { DefaultLayout, NoneLayout, OnlyHeader } from "../../components/layout";
+import { DefaultLayout, OnlyHeader } from "../../components/layout";
+import Setting from "../../pages/setting";
 
 function HomePageRouter() {
     const { homePageParam } = useParams();
@@ -21,16 +23,20 @@ function HomePageRouter() {
         case "live":
             Page = LivePage;
             break;
-        case "feedBack":
+        case "feedback":
             Layout = OnlyHeader;
             Page = Feedback;
             break;
         case "videoFull":
-            Layout = NoneLayout;
+            Layout = Fragment;
             Page = VideoFullPage;
             break;
+        case "setting":
+            Layout = OnlyHeader;
+            Page = Setting;
+            break;
         default:
-            Layout = NoneLayout;
+            Layout = Fragment;
             Page = PageNotFound;
     }
     return (

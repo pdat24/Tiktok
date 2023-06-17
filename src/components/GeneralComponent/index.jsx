@@ -8,3 +8,4 @@ export { default as TextOverflow } from "./TextOverflow";
 export { default as CommentDiv } from "./CommentDiv";
 export { default as TitleDiv } from "./TitleDiv";
 export { default as ScrollToTopBtn } from "./ScrollToTopBtn";
+export { default as ToggleButton } from "./ToggleButton";

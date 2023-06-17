@@ -1,4 +1,5 @@
-/* eslint-disable react/prop-types */
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import { useSelector, useDispatch } from "react-redux";
 import clsx from "clsx";
 
@@ -32,6 +33,9 @@ function LanguagesPicker({ onHide }) {
                 {langs.map((elem, index) => {
                     return (
                         <li
+                            css={css`
+                                padding: 10px 8px 10px 16px;
+                            `}
                             onClick={() => updateLang(setLanguage(elem))}
                             key={index}
                             className={clsx(scss["more-vert-items"], {

@@ -19,10 +19,16 @@ function MoreVertMenu({ showLangs, onShowLangs }) {
                 <LangPickerOpenner onToggleLang={handleToggleLang} />
                 {/** move on feedback page */}
                 <li className={clsx(scss["more-vert-items"], "font-bold")}>
-                    <div className={scss["more-vert-icon"]}>
+                    <Link to="/feedback" className={scss["more-vert-icon"]}>
                         <span className="material-symbols-outlined">help</span>
-                        <Link to="/feedBack">Phản hồi và trợ giúp</Link>
-                    </div>
+                        <span>Phản hồi và trợ giúp</span>
+                    </Link>
+                </li>
+                <li className={clsx(scss["more-vert-items"], "font-bold")}>
+                    <Link to="/setting" className={scss["more-vert-icon"]}>
+                        <span className="material-symbols-outlined">settings</span>
+                        <span className="whitespace-nowrap">Cài đặt</span>
+                    </Link>
                 </li>
                 {/** trigger shortcut modal */}
                 <li

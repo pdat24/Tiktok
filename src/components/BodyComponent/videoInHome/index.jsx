@@ -24,12 +24,12 @@ function Video({ autoPlay, src, className, like, share, comment, save, ...attrs 
     const playBtn = useRef();
     const muteBtn = useRef();
     const play_ = () => {
-        videoDOM.current.play();
-        playBtn.current.classList.replace("fa-play", "fa-pause");
+        videoDOM.current?.play();
+        playBtn.current?.classList.replace("fa-play", "fa-pause");
     };
     const pause_ = () => {
-        videoDOM.current.pause();
-        playBtn.current.classList.replace("fa-pause", "fa-play");
+        videoDOM.current?.pause();
+        playBtn.current?.classList.replace("fa-pause", "fa-play");
     };
     const mute_ = () => {
         sound = videoDOM.current.muted = true;
@@ -57,6 +57,7 @@ function Video({ autoPlay, src, className, like, share, comment, save, ...attrs 
                 playBtn.current.style.visibility = "hidden";
             }, 200);
         };
+        document.addEventListener("visibilitychange", () => pause_());
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {

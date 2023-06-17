@@ -25,7 +25,7 @@ function ModeButton() {
             css={css`
                 ${theme ? "background-color: rgba(108, 241, 31)" : "background-color: rgba(22, 24, 35, 0.16)"}
             `}
-            className={clsx(scss["switch"])}
+            className={clsx(scss["switch"], "mr-4")}
         >
             <input type="checkbox" ref={checkbox} />
             <div ref={slide} className={scss["slide"]}></div>
@@ -38,10 +38,10 @@ function ThemeSwitcher() {
     const updateTheme = useDispatch();
     return (
         <li
-            className={clsx(scss["more-vert-items"], "flex", "items-center", "justify-between", "cursor-pointer", "font-bold")}
+            className={clsx(scss["more-vert-items"], "flex items-center justify-between cursor-pointer font-bold")}
             onClick={() => updateTheme(setTheme())}
         >
-            <div className={clsx(scss["more-vert-icon"], "flex", "gap-2")}>
+            <div className={clsx(scss["more-vert-icon"], "flex gap-2 w-fit")}>
                 <span className="material-symbols-outlined">dark_mode</span>
                 <span>Chế độ tối</span>
             </div>
