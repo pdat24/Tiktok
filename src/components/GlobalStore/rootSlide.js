@@ -4,7 +4,7 @@ const initialState = {
     theme: false,
     language: "Tiếng Việt",
     title: "TikTok | Make Your Day",
-    accountName: {name: "@user_tiktok", default: true}
+    accountName: {name: "@user_tiktok", default: true},
 };
 
 const rootSlide = createSlice({

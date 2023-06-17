@@ -97,6 +97,7 @@ function HomePage() {
                                     </GeneralButton>
                                 </div>
                                 <Video
+                                    autoPlay={index === 0}
                                     className="overflow-hidden"
                                     src={item.video}
                                     like={item.like}

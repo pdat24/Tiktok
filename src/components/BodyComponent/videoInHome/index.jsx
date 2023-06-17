@@ -16,7 +16,9 @@ function LikeButton({ like }) {
     );
 }
 
-function Video({ src, className, like, share, comment, save, ...attrs }) {
+let sound = true;
+
+function Video({ autoPlay, src, className, like, share, comment, save, ...attrs }) {
     const videoWrapper = useRef();
     const videoDOM = useRef();
     const playBtn = useRef();
@@ -30,11 +32,11 @@ function Video({ src, className, like, share, comment, save, ...attrs }) {
         playBtn.current.classList.replace("fa-pause", "fa-play");
     };
     const mute_ = () => {
-        videoDOM.current.muted = true;
+        sound = videoDOM.current.muted = true;
         muteBtn.current.classList.replace("fa-volume-high", "fa-volume-xmark");
     };
     const unmute_ = () => {
-        videoDOM.current.muted = false;
+        sound = videoDOM.current.muted = false;
         muteBtn.current.classList.replace("fa-volume-xmark", "fa-volume-high");
     };
     useEffect(() => {
@@ -55,6 +57,30 @@ function Video({ src, className, like, share, comment, save, ...attrs }) {
                 playBtn.current.style.visibility = "hidden";
             }, 200);
         };
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        videoDOM.current.play();
+                        videoDOM.current.muted = sound;
+                        sound
+                            ? muteBtn.current.classList.replace("fa-volume-high", "fa-volume-xmark")
+                            : muteBtn.current.classList.replace("fa-volume-xmark", "fa-volume-high");
+                    } else {
+                        if (videoDOM.current) {
+                            videoDOM.current.currentTime = 0;
+                            videoDOM.current.pause();
+                        }
+                    }
+                });
+            },
+            {
+                root: null,
+                threshold: 0.5,
+                rootMargin: "0px",
+            }
+        );
+        observer.observe(videoDOM.current);
     }, []);
     const controlBTnStyle = css`
         font-size: 20px;
@@ -68,6 +94,9 @@ function Video({ src, className, like, share, comment, save, ...attrs }) {
             <div className="flex w-fit mx-auto h-full justify-center">
                 <div ref={videoWrapper} className="mr-5 relative cursor-pointer">
                     <video
+                        autoPlay={autoPlay}
+                        muted="muted"
+                        onPlay={play_}
                         onEnded={play_}
                         loading="lazy"
                         onPause={pause_}
@@ -77,7 +106,7 @@ function Video({ src, className, like, share, comment, save, ...attrs }) {
                     ></video>
                     <div className="absolute bottom-0 flex w-full pb-5 px-3 justify-between">
                         <i ref={playBtn} css={controlBTnStyle} className="fa-solid fa-play invisible"></i>
-                        <i ref={muteBtn} css={controlBTnStyle} className="fa-solid fa-volume-high"></i>
+                        <i ref={muteBtn} css={controlBTnStyle} className="fa-solid fa-volume-xmark"></i>
                     </div>
                 </div>
                 <div className="flex flex-col gap-2.5 self-end">

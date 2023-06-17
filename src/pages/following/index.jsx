@@ -1,16 +1,24 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { videoInFollowingPage } from "../../components/GlobalVar";
-import { Avatar, GeneralButton } from "../../components/GeneralComponent";
+import { Avatar, GeneralButton, ScrollToTopBtn } from "../../components/GeneralComponent";
+import handleScrollTop from "../../components/GeneralComponent/handleScrollTop";
 import scss from "./following.module.scss";
 import playWhenEnter from "../../components/GeneralComponent/playWhenEnter";
 
 function FollowPage() {
+    const wrapper = useRef();
+    const scrollBtn = useRef();
+    useEffect(() => {
+        handleScrollTop({ target: wrapper.current, trigger: scrollBtn.current });
+    }, []);
     const ChildElement = ({ item }) => {
         const itemWrapperDiv = useRef();
         const videDiv = useRef();
-        const textStyle = clsx("text-ellipsis", "overflow-hidden", "w-full", "whitespace-nowrap", "text-center");
+        const textStyle = "text-ellipsis overflow-hidden w-full whitespace-nowrap text-center";
         useEffect(() => {
             videDiv.current.muted = true;
             playWhenEnter({ parent: itemWrapperDiv.current, video: videDiv.current });
@@ -41,10 +49,20 @@ function FollowPage() {
         );
     };
     return (
-        <div className={scss.wrapperStyle}>
-            {videoInFollowingPage.map((item, index) => {
-                return <ChildElement key={index} item={item} />;
-            })}
+        <div
+            ref={wrapper}
+            css={css`
+                height: calc(100vh - 60px);
+                scroll-behavior: smooth;
+                overflow-y: scroll;
+            `}
+        >
+            <div className={scss.wrapperStyle}>
+                {videoInFollowingPage.map((item, index) => {
+                    return <ChildElement key={index} item={item} />;
+                })}
+            </div>
+            <ScrollToTopBtn onClick={() => (wrapper.current.scrollTop = 0)} ref={scrollBtn} />
         </div>
     );
 }

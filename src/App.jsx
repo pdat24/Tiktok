@@ -1,30 +1,28 @@
 import { Route, Routes } from "react-router-dom";
 import { createPortal } from "react-dom";
 import { useSelector } from "react-redux";
-
-import { publicRoute } from "./routes";
-import DefaultLayout from "./components/layout/defaultLayout";
+import HomePageRouter from "./routes/Home";
+import HomePage from "./pages/home";
+import { DefaultLayout, NoneLayout } from "./components/layout";
 
 function App() {
     return (
         <>
             {createPortal(<title>{useSelector((states) => states.root.title)}</title>, document.head)}
             <Routes>
-                {publicRoute.map((elem, index) => {
-                    const Layout = elem.layout ? elem.layout : DefaultLayout;
-                    const Page = elem.component;
-                    return (
-                        <Route
-                            key={index}
-                            path={elem.path}
-                            element={
-                                <Layout>
-                                    <Page />
-                                </Layout>
-                            }
-                        />
-                    );
-                })}
+                {/** Home page */}
+                <Route
+                    path="/"
+                    element={
+                        <DefaultLayout>
+                            <HomePage />
+                        </DefaultLayout>
+                    }
+                />
+                {/** children of home page */}
+                <Route path="/" element={<NoneLayout />}>
+                    <Route path=":homePageParam" element={<HomePageRouter />} />
+                </Route>
             </Routes>
         </>
     );
