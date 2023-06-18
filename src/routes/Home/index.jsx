@@ -8,6 +8,7 @@ import VideoFullPage from "../../pages/videoFull";
 import PageNotFound from "../../pages/pageNotFound";
 import { DefaultLayout, OnlyHeader } from "../../components/layout";
 import Setting from "../../pages/setting";
+import UploadPage from "../../pages/upload";
 
 function HomePageRouter() {
     const { homePageParam } = useParams();
@@ -34,6 +35,10 @@ function HomePageRouter() {
         case "setting":
             Layout = OnlyHeader;
             Page = Setting;
+            break;
+        case "upload":
+            Layout = OnlyHeader;
+            Page = UploadPage;
             break;
         default:
             Layout = Fragment;

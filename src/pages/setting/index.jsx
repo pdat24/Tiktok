@@ -100,13 +100,7 @@ function Setting() {
             <div className={scss.wrapper}>
                 <div className="mt-4 flex gap-4">
                     <NavBar />
-                    <div
-                        css={css`
-                            margin-left: 372px;
-                            overflow-y: scroll;
-                            scroll-behavior: smooth;
-                        `}
-                    >
+                    <div className={scss.rightSideParent}>
                         <div className={clsx(scss.side, scss.rightSide)}>
                             <WrapperContent>
                                 <Title id="content1">Manage account</Title>

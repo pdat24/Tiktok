@@ -5,10 +5,10 @@ import logo from "../../../assets/imgs/blackLogo.png";
 import { memo } from "react";
 import scss from "./PageFooter.module.scss";
 
-function PageFooter() {
+function PageFooter({ className, ...attrs }) {
     const keys = ["Company", "Programs", "Support", "Legal"];
     return (
-        <>
+        <div className={className} {...attrs}>
             <div className={scss.footerInfo}>
                 <img src={logo} alt="logo" className={scss.footerLogo} />
                 {keys.map((items, index) => (
@@ -57,7 +57,7 @@ function PageFooter() {
                     © 2023 TikTok
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 

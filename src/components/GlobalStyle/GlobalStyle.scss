@@ -27,6 +27,15 @@ $header-h: 60px;
     background-color: #eee;
     border-radius: 5px;
 }
+.fullLayer {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+    transition: opacity 200ms ease;
+}
 
 body {
     font-family: "Roboto", "IBM Plex Sans", sans-serif;
@@ -71,4 +80,7 @@ body {
 }
 .color-gray {
     color: var(--lighter-text-color);
+}
+.mt-60px {
+    margin-top: 60px;
 }

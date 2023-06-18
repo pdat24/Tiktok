@@ -18,6 +18,11 @@
     border-radius: 4px;
     overflow: hidden auto;
 }
+.rightSideParent {
+    margin-left: 372px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
 @media (max-width: 1220px) {
     .leftSide {
         display: none;
@@ -27,6 +32,10 @@
     }
     .backArrow {
         display: none !important;
+    }
+    .rightSideParent {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 .side {

@@ -111,10 +111,10 @@ function Video({ autoPlay, src, className, like, share, comment, save, ...attrs 
                     </div>
                 </div>
                 <div className="flex flex-col gap-2.5 self-end">
-                    <LikeButton like={like} />
-                    <ClipButton count={comment} icon="fa-solid fa-comment-dots" />
-                    <ClipButton count={save} icon="fa-solid fa-bookmark" />
-                    <ShareDiv count={share} />
+                    <LikeButton like={like || 0} />
+                    <ClipButton count={comment || 0} icon="fa-solid fa-comment-dots" />
+                    <ClipButton count={save || 0} icon="fa-solid fa-bookmark" />
+                    <ShareDiv count={share || 0} />
                 </div>
             </div>
         </div>
