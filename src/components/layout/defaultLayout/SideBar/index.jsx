@@ -38,6 +38,7 @@ function SideBar() {
     return (
         <div className={scss.wrapper} id="sidebarWrapper">
             <div
+                id="sidebarScrollDiv"
                 css={css`
                     padding: 20px 0 25px 8px;
                 `}
@@ -49,7 +50,7 @@ function SideBar() {
                                 <li key={index}>
                                     <LinkPage url={elem.url}>
                                         <Icon className={"fa-solid " + elem.icon}></Icon>
-                                        <span>{elem.text}</span>
+                                        <span className="sideBarTextLinkPage">{elem.text}</span>
                                     </LinkPage>
                                 </li>
                             );
@@ -57,6 +58,7 @@ function SideBar() {
                     </ul>
                 </Block>
                 <Block
+                    className="sideBarLoginDiv"
                     css={css`
                         padding: 20px 8px 24px;
                     `}
@@ -83,7 +85,7 @@ function SideBar() {
                     </button>
                 </Block>
                 <ChannelDiv />
-                <Block className="pt-4 pb-1">
+                <Block className="pt-4 pb-1 sideBarExplore">
                     <SidebarTitle className="pb-3">Khám phá</SidebarTitle>
                     <ul>
                         {tags.map((elem, index) => (
@@ -96,6 +98,7 @@ function SideBar() {
                     </ul>
                 </Block>
                 <div
+                    className="sideBarFooter"
                     css={css`
                         color: rgba(22, 24, 35, 0.5);
                         padding: 16px 0 16px 8px;

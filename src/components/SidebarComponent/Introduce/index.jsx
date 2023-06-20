@@ -66,11 +66,11 @@ function Introduce({
                 <p className="mt-2">
                     <span className="mr-3">
                         <span className={scss.followCount}>{handleShowCount(follower || 0)}</span>
-                        <span className={scss.follwText}>Follower</span>
+                        <span className={scss.followText}>Follower</span>
                     </span>
                     <span className="mr-3">
                         <span className={scss.followCount}>{handleShowCount(like || 0)}</span>
-                        <span className={scss.follwText}>Thích</span>
+                        <span className={scss.followText}>Thích</span>
                     </span>
                 </p>
             </div>

@@ -64,9 +64,9 @@ function VideoHeader({ target }) {
     return (
         <div className={scss.videoHeader}>
             <div className="flex items-center">
-                <div className="avatarDivInLivePage">
-                    <Link to="/">
-                        <Avatar alt="avatar" className="mx-3" wh="41px" src={target.avatar} />
+                <div className="avatarDivInLivePage flex">
+                    <Link to="/" className="mx-3 inline-block">
+                        <Avatar alt="avatar" wh="41px" src={target.avatar} />
                     </Link>
                     <Introduce
                         startTime={10}

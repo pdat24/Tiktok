@@ -50,10 +50,17 @@ const FullVideoBlock = ({ children }) => {
                         className="py-5 flex border-b-slate-200 border-b border-b-solid h-full"
                         css={css`
                             height: calc(100vh - 60px);
+                            max-width: 694px;
+                            width: fit-content;
                         `}
                     >
                         <AvatarDiv channel={item} />
-                        <div className="header flex flex-col relative">
+                        <div
+                            className="header flex flex-col relative"
+                            css={css`
+                                width: 624px;
+                            `}
+                        >
                             {/* Header */}
                             <div className="mr-28">
                                 <Link to="/" className="underline-none flex items-center gap-1 w-fit">
@@ -86,6 +93,7 @@ const FullVideoBlock = ({ children }) => {
                                 </GeneralButton>
                             </div>
                             <Video
+                                channel={item}
                                 autoPlay={index === 0}
                                 className="overflow-hidden"
                                 src={item.video}

@@ -16,7 +16,7 @@ function RightSide() {
             {/** Upload button */}
             <Link
                 to="/upload"
-                className={clsx(scss["upload-btn"], scss["header__right-btn"], "gap-1", "rounded", "border")}
+                className={clsx(scss["upload-btn"], scss["header__right-btn"], "gap-1 rounded border bg-white")}
             >
                 <span
                     css={css`

@@ -4,25 +4,35 @@ import { ClipButton } from "..";
 import { useEffect, useRef, useState } from "react";
 import ShareDiv from "./ShareDiv";
 import clsx from "clsx";
+import { useDispatch } from "react-redux";
+import { setActiveVideo } from "../../GlobalStore/activeVideoSlice";
+import { useNavigate } from "react-router-dom";
 
 function LikeButton({ like }) {
     const [liked, setLiked] = useState(false);
+    const like_ = useRef(like);
     return (
         <ClipButton
-            onClick={() => setLiked(!liked)}
-            count={like}
-            icon={clsx({ "text-white bg-primary": liked }, "fa-solid fa-heart")}
+            onClick={() => {
+                !liked ? like_.current++ : like_.current--;
+                setLiked(!liked);
+            }}
+            count={like_.current}
+            icon={clsx({ "color-primary": liked }, "fa-solid fa-heart")}
         />
     );
 }
 
 let sound = true;
 
-function Video({ autoPlay, src, className, like, share, comment, save, ...attrs }) {
+function Video({ channel, autoPlay, src, className, like, share, comment, save, ...attrs }) {
+    const navigate = useNavigate();
+    const updateStore = useDispatch();
     const videoWrapper = useRef();
     const videoDOM = useRef();
     const playBtn = useRef();
     const muteBtn = useRef();
+    const timeID = useRef();
     const play_ = () => {
         videoDOM.current?.play();
         playBtn.current?.classList.replace("fa-play", "fa-pause");
@@ -62,12 +72,15 @@ function Video({ autoPlay, src, className, like, share, comment, save, ...attrs 
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        videoDOM.current.play();
-                        videoDOM.current.muted = sound;
-                        sound
-                            ? muteBtn.current.classList.replace("fa-volume-high", "fa-volume-xmark")
-                            : muteBtn.current.classList.replace("fa-volume-xmark", "fa-volume-high");
+                        timeID.current = setTimeout(() => {
+                            videoDOM.current.play();
+                            videoDOM.current.muted = sound;
+                            sound
+                                ? muteBtn.current.classList.replace("fa-volume-high", "fa-volume-xmark")
+                                : muteBtn.current.classList.replace("fa-volume-xmark", "fa-volume-high");
+                        }, 600);
                     } else {
+                        clearTimeout(timeID.current);
                         if (videoDOM.current) {
                             videoDOM.current.currentTime = 0;
                             videoDOM.current.pause();
@@ -90,6 +103,28 @@ function Video({ autoPlay, src, className, like, share, comment, save, ...attrs 
         cursor: pointer;
         transition: opacity 200ms linear;
     `;
+    const handleOpenFullVideo = () => {
+        updateStore(
+            setActiveVideo({
+                video: src,
+                channel: {
+                    avatar: channel.avatar,
+                    userName: channel.accountName,
+                    nickName: channel.userName,
+                    desc: channel.desc,
+                },
+                tags: channel.tags,
+                time: "1d",
+                footerNote: channel.footerNote,
+                like,
+                comment,
+                bookmark: save,
+            })
+        );
+        setTimeout(() => {
+            navigate("/video");
+        }, 100);
+    };
     return (
         <div className={className} {...attrs}>
             <div className="flex w-fit mx-auto h-full justify-center">
@@ -103,7 +138,7 @@ function Video({ autoPlay, src, className, like, share, comment, save, ...attrs 
                         onPause={pause_}
                         ref={videoDOM}
                         src={src}
-                        className="rounded-lg h-full w-full"
+                        className="rounded-lg h-full w-full homevideoDOM"
                     ></video>
                     <div className="absolute bottom-0 flex w-full pb-5 px-3 justify-between">
                         <i ref={playBtn} css={controlBTnStyle} className="fa-solid fa-play invisible"></i>
@@ -112,8 +147,10 @@ function Video({ autoPlay, src, className, like, share, comment, save, ...attrs 
                 </div>
                 <div className="flex flex-col gap-2.5 self-end">
                     <LikeButton like={like || 0} />
-                    <ClipButton count={comment || 0} icon="fa-solid fa-comment-dots" />
-                    <ClipButton count={save || 0} icon="fa-solid fa-bookmark" />
+                    <ClipButton onClick={handleOpenFullVideo} count={comment || 0} icon="fa-solid fa-comment-dots" />
+                    <a download={true} href={src}>
+                        <ClipButton count={save || 0} icon="fa-solid fa-bookmark" />
+                    </a>
                     <ShareDiv count={share || 0} />
                 </div>
             </div>

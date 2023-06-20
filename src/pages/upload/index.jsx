@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { GeneralButton, PageFooter } from "../../components/GeneralComponent";
 import scss from "./upload.module.scss";
 import styled from "@emotion/styled";
@@ -15,16 +15,12 @@ function UploadPage() {
     const fileInput = useRef();
     const [showForm, setShowForm] = useState(false);
     const newVideo = useRef();
-    useEffect(() => {
-        const handler = (e) => {
-            if (e.target.files.length) {
-                newVideo.current = URL.createObjectURL(e.target.files[0]);
-                setShowForm(true);
-            }
-        };
-        fileInput.current.addEventListener("input", handler);
-        return () => fileInput.current?.removeEventListener("input", handler);
-    }, []);
+    const handleChooseFile = (e) => {
+        if (e.target.files.length) {
+            newVideo.current = URL.createObjectURL(e.target.files[0]);
+            setShowForm(true);
+        }
+    };
     return (
         <div
             css={css`
@@ -40,7 +36,14 @@ function UploadPage() {
                         `}
                     >
                         <div role="button" className={scss.mainStyle} onClick={() => fileInput.current.click()}>
-                            <input ref={fileInput} type="file" className="w-0" accept="video/*" />
+                            <input
+                                onChange={handleChooseFile}
+                                onClick={(e) => (e.target.value = null)}
+                                ref={fileInput}
+                                type="file"
+                                className="w-0"
+                                accept="video/*"
+                            />
                             <i
                                 css={css`
                                     font-size: 32px;
@@ -67,7 +70,7 @@ function UploadPage() {
                 </div>
                 <PageFooter className="pb-8 bg-black border-t border-t-solid border-t-gray-100" />
             </div>
-            {showForm && <CollectDataForm video={newVideo.current} />}
+            {showForm && <CollectDataForm video={newVideo.current} onShowForm={setShowForm} />}
         </div>
     );
 }

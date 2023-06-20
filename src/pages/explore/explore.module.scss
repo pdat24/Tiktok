@@ -5,6 +5,11 @@
     width: calc(100vw - 240px - 96px);
     transition: top 0.4s ease 0s;
 }
+@media (max-width: 1023px) {
+    .categoryDivWrapper {
+        width: calc(100vw - 64px - 96px);
+    }
+}
 .moveSlideButton {
     position: absolute;
     z-index: 1;

@@ -4,7 +4,7 @@ import { css } from "@emotion/react";
 import handleShowCount from "./handelShowCount";
 import { forwardRef } from "react";
 
-function ClipButton({ count, icon, ...attrs }, ref) {
+function ClipButton({ iconStyle, count, icon, ...attrs }, ref) {
     const style = css`
         display: flex;
         align-items: center;
@@ -30,7 +30,7 @@ function ClipButton({ count, icon, ...attrs }, ref) {
     `;
     return (
         <div ref={ref} {...attrs} css={wrapper}>
-            <i css={style} className={icon}></i>
+            <i css={style} style={iconStyle} className={icon}></i>
             <div css={textStyle}>{handleShowCount(count)}</div>
         </div>
     );

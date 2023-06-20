@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import scss from "./SearchBar.module.scss";
 
-function SearchBar() {
+function SearchBar({ className, placeholder, ...attrs }) {
     let focused = false;
     let entered = false;
     const searchBar = useRef();
@@ -20,11 +20,11 @@ function SearchBar() {
         }
     };
     return (
-        <div id={scss["header__center"]}>
+        <div id={scss["header__center"]} className={className} {...attrs}>
             <div ref={searchBar} className={scss["search-bar"]}>
                 <input
                     className={scss["search-input"]}
-                    placeholder="Tìm kiếm"
+                    placeholder={placeholder || "Tìm kiếm"}
                     onFocus={() => handleToggleBorder({ type: "focus" })}
                     onBlur={() => handleToggleBorder({ type: "blur" })}
                     onMouseEnter={() => handleToggleBorder({ type: "enter" })}

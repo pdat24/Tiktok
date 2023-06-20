@@ -4,7 +4,7 @@ import ExplorePage from "../../pages/explore";
 import FollowPage from "../../pages/following";
 import Feedback from "../../pages/feedBack";
 import LivePage from "../../pages/live";
-import VideoFullPage from "../../pages/videoFull";
+import VideoFullPage from "../../pages/video";
 import PageNotFound from "../../pages/pageNotFound";
 import { DefaultLayout, OnlyHeader } from "../../components/layout";
 import Setting from "../../pages/setting";
@@ -28,7 +28,7 @@ function HomePageRouter() {
             Layout = OnlyHeader;
             Page = Feedback;
             break;
-        case "videoFull":
+        case "video":
             Layout = Fragment;
             Page = VideoFullPage;
             break;

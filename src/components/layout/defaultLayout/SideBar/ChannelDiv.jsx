@@ -77,12 +77,12 @@ function ChannelDiv() {
     };
     return (
         <Block className="py-4" onScroll={() => alert("worked")}>
-            <SidebarTitle>Tài khoản được đề xuất</SidebarTitle>
+            <SidebarTitle className="sideBarTitle">Tài khoản được đề xuất</SidebarTitle>
             <div>
                 <ul>{hidden ? renderSome() : renderMore()}</ul>
                 <span
                     onClick={() => setHidden(!hidden)}
-                    className="font-semibold px-2 mt-2 color-primary text-sm cursor-pointer inline-block"
+                    className="font-semibold px-2 mt-2 color-primary text-sm cursor-pointer inline-block sidebarSeeAllBtn"
                 >
                     {hidden ? "Xem tất cả" : "Ẩn bớt"}
                 </span>

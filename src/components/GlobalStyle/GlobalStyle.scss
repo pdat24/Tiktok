@@ -84,3 +84,29 @@ body {
 .mt-60px {
     margin-top: 60px;
 }
+@media screen and (max-width: 1023px) {
+    .sideBarChannelDivRight,
+    .sideBarTextLinkPage,
+    .sideBarLoginDiv,
+    .sideBarExplore,
+    .sideBarFooter,
+    .sidebarSeeAllBtn,
+    .sideBarTitle {
+        display: none !important;
+    }
+    #sidebarWrapper {
+        width: fit-content;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 4px;
+    }
+    #sidebarScrollDiv {
+        width: fit-content;
+        padding-right: 8px;
+        height: auto;
+    }
+    #mainContent {
+        margin-left: 64px !important;
+    }
+}
+#mainContent {
+    margin-left: 240px;
+}

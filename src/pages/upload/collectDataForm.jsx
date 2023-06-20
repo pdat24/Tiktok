@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import scss from "./upload.module.scss";
 import { Avatar, GeneralButton } from "../../components/GeneralComponent";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import defaultAvatar from "../../assets/imgs/defaultAvatar.webp";
 import { setUploadVideo } from "../../components/GlobalStore/uploadVideoSlice";
 import { useDispatch } from "react-redux";
@@ -31,7 +31,7 @@ const ContentBlock = styled.div`
     border-bottom: 0.5px solid rgba(22, 24, 35, 0.12);
 `;
 
-function CollectDataForm({ video }) {
+function CollectDataForm({ video, onShowForm }) {
     const navigate = useNavigate();
     const [uName, setUName] = useState("");
     const [nickName, setNickName] = useState("");
@@ -40,23 +40,24 @@ function CollectDataForm({ video }) {
     const fileInput = useRef();
     const main = useRef();
     const layerWrapper = useRef();
+    const allowedTypeDesc = useRef(true);
     const dispatch = useDispatch();
-    useEffect(() => {
-        const handler = (e) => {
-            if (e.target.files.length) {
-                URL.revokeObjectURL(tempAvatar);
-                setTempAvatar(URL.createObjectURL(e.target.files[0]));
-            }
-        };
-        fileInput.current.addEventListener("input", handler);
-        return () => fileInput.current?.removeEventListener("input", handler);
-    }, []);
+    const handleChooseFile = (e) => {
+        if (e.target.files.length) {
+            URL.revokeObjectURL(tempAvatar);
+            setTempAvatar(URL.createObjectURL(e.target.files[0]));
+        }
+    };
     const handleTypeUN = (e) => setUName(e.target.value);
     const handleTypeRN = (e) => setNickName(e.target.value);
     const handleTypeDesc = (e) => {
-        if (desc.length < 80) setDesc(e.target.value);
+        if (allowedTypeDesc.current) setDesc(e.target.value);
     };
-    const handleSave = () => {
+    const handleDescKeyDown = (e) => {
+        if (desc.length >= 80 && e.key != "Backspace") allowedTypeDesc.current = false;
+        else allowedTypeDesc.current = true;
+    };
+    const handleUpload = () => {
         if (uName.length != 0 && !uName.includes(" ") && nickName.replace(" ", "").length != 0) {
             dispatch(
                 setUploadVideo({
@@ -70,11 +71,12 @@ function CollectDataForm({ video }) {
                     footerNote: "Booking: trucmayofficial@gmail.com Mua nước hoa ghé giỏ hàng phía dưới nha 👇",
                 })
             );
+            handleCloseForm();
             setTimeout(() => {
                 navigate("/");
-            }, 500);
+            }, 250);
         } else {
-            alert("Invalid information! PLease specially read my notice and try again");
+            alert("Invalid information! PLease specifically read my notice and try again");
         }
     };
     const handleCloseForm = () => {
@@ -82,6 +84,7 @@ function CollectDataForm({ video }) {
         layerWrapper.current.style.opacity = 0;
         setTimeout(() => {
             layerWrapper.current.style.display = "none";
+            onShowForm(false);
         }, 200);
     };
     return (
@@ -95,7 +98,13 @@ function CollectDataForm({ video }) {
                     <ContentBlock>
                         <FormLabel>Profile photo</FormLabel>
                         <div className="flex justify-center w-6/12">
-                            <input accept="image/*" ref={fileInput} type="file" className="w-0" />
+                            <input
+                                onChange={handleChooseFile}
+                                accept="image/*"
+                                ref={fileInput}
+                                type="file"
+                                className="w-0"
+                            />
                             <div
                                 onClick={() => fileInput.current.click()}
                                 className="relative"
@@ -139,6 +148,7 @@ function CollectDataForm({ video }) {
                             <textarea
                                 value={desc}
                                 onChange={handleTypeDesc}
+                                onKeyDown={handleDescKeyDown}
                                 className={scss.textareaInput}
                                 placeholder="Description"
                             ></textarea>
@@ -157,8 +167,8 @@ function CollectDataForm({ video }) {
                     >
                         Cancel
                     </GeneralButton>
-                    <GeneralButton onClick={handleSave} fw="400" w="96px" className="hover:brightness">
-                        Save
+                    <GeneralButton onClick={handleUpload} fw="400" w="96px" className="hover:brightness">
+                        Upload
                     </GeneralButton>
                 </div>
             </div>

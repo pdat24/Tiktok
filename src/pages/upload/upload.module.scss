@@ -93,4 +93,13 @@
     background-color: #fff;
     border-radius: 8px;
     transition: scale 200ms ease;
+    animation: dialogAppear 200ms ease;
+}
+@keyframes dialogAppear {
+    from {
+        scale: 0;
+    }
+    to {
+        scale: 1;
+    }
 }

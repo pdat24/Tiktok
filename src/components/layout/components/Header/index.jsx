@@ -19,7 +19,7 @@ function Header({ innerCls, innerCss, className, ...attrs }) {
                                 width: 40%;
                             `}
                         >
-                            <img className="w-full" src={logo} alt="logo" />
+                            <img className="w-full shrink" src={logo} alt="logo" />
                         </a>
                     </div>
                     <SearchBar />

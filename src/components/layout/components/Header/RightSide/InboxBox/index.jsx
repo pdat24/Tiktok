@@ -50,9 +50,11 @@ function InboxDiv() {
             inboxBlock.current.classList.remove("hidden");
             hidden = false;
         };
-        const hiddenBox = () => {
-            inboxBlock.current.classList.add("hidden");
-            hidden = true;
+        const hiddenBox = (e) => {
+            if (!e?.defaultPrevented) {
+                inboxBlock.current.classList.add("hidden");
+                hidden = true;
+            }
         };
         inboxIcon.current.onclick = (e) => {
             e.stopPropagation();
@@ -60,7 +62,7 @@ function InboxDiv() {
             else hiddenBox();
         };
         document.body.addEventListener("click", hiddenBox);
-        inboxBlock.current.onclick = (e) => e.stopPropagation();
+        inboxBlock.current.onclick = (e) => e.preventDefault();
         handleHover({ parent: inboxIcon.current, target: inboxLabel.current });
         return () => {
             document.body.removeEventListener("click", hiddenBox);

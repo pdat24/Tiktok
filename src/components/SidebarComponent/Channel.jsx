@@ -39,7 +39,7 @@ function Channel({ img, name, desc, url }, ref) {
             <div css={imgWrapperStyle}>
                 <img src={img} alt="Tiktok channel image" />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col sideBarChannelDivRight">
                 <div className="flex items-center">
                     <ChannelName fs="14px" maxW="145px">
                         {name}

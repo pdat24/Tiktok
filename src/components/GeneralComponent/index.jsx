@@ -10,3 +10,4 @@ export { default as TitleDiv } from "./TitleDiv";
 export { default as ScrollToTopBtn } from "./ScrollToTopBtn";
 export { default as ToggleButton } from "./ToggleButton";
 export { default as PageFooter } from "./PageFooter";
+export { default as VideoDurationBar } from "./videoDurationBar";

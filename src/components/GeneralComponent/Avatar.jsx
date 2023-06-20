@@ -6,7 +6,17 @@ function Avatar({ wh, ...attrs }) {
         width: ${wh};
         height: ${wh};
     `;
-    return <Component {...attrs} />;
+    const Wrapper = styled.div`
+        border-radius: 50%;
+        width: ${wh};
+        height: ${wh};
+        background-color: rgba(22, 24, 35, 0.06);
+    `;
+    return (
+        <Wrapper>
+            <Component {...attrs} />
+        </Wrapper>
+    );
 }
 
 export default Avatar;
