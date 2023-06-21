@@ -10,15 +10,31 @@ import PostCommentDiv from "./postCommentDiv";
 import VideoSide from "./videoSide";
 import ChatBox from "./chatBox";
 import { useSelector } from "react-redux";
+import { useState, useRef } from "react";
 
-const InteractButton = ({ icon, count }) => {
+const InteractButton = ({ icon, count, ...args }) => {
     return (
-        <div className="flex gap-2 items-center cursor-pointer">
+        <div className="flex gap-2 items-center cursor-pointer" {...args}>
             <i className={clsx(icon, scss.interactBtn)}></i>
             <span className="text-xs">{count ? handleShowCount(count) : 0}</span>
         </div>
     );
 };
+
+function LikeButton({ like }) {
+    const [liked, setLiked] = useState(false);
+    const like_ = useRef(like);
+    return (
+        <InteractButton
+            onClick={() => {
+                !liked ? like_.current++ : like_.current--;
+                setLiked(!liked);
+            }}
+            count={like_.current}
+            icon={clsx({ "color-primary": liked }, "fa-solid fa-heart")}
+        />
+    );
+}
 
 const ShareBtnDiv = () => {
     return (
@@ -58,12 +74,15 @@ function ShareButton({ icon, bg, color }) {
 
 function VideoFullPage() {
     const data = useSelector((s) => s.activeVideo);
+    const handleCopy = () => {
+        navigator.clipboard.writeText("The link of this video here.");
+    };
     return (
-        <div className="flex">
+        <div className={scss.wrapper}>
             <VideoSide />
             <div className={scss.rightSide}>
                 <div>
-                    <div className="px-8">
+                    <div className="px-8 flex justify-between items-center">
                         <CommentDiv
                             className="profileDiv relative"
                             whAvatar="40px"
@@ -102,27 +121,25 @@ function VideoFullPage() {
                                 </GeneralButton>
                                 <IntroduceFooter>{data.footerNote}</IntroduceFooter>
                             </Introduce>
-                            <div className="flex justify-center">
-                                <div className="ml-3 grow shrink">
-                                    <Link to="/" className="font-bold hover:underline">
-                                        {data.channel.userName}
-                                    </Link>
-                                    <div className="text-sm">{data.channel.nickName}</div>
-                                </div>
-                                <GeneralButton
-                                    color="var(--primary-color)"
-                                    bg="#fff"
-                                    css={css`
-                                        border: 1px solid var(--primary-color);
-                                        &:hover {
-                                            background-color: #fe2c550f;
-                                        }
-                                    `}
-                                >
-                                    Follow
-                                </GeneralButton>
+                            <div className="ml-3 grow shrink">
+                                <Link to="/" className="font-bold hover:underline">
+                                    {data.channel.userName}
+                                </Link>
+                                <div className="text-sm">{data.channel.nickName}</div>
                             </div>
                         </CommentDiv>
+                        <GeneralButton
+                            color="var(--primary-color)"
+                            bg="#fff"
+                            css={css`
+                                border: 1px solid var(--primary-color);
+                                &:hover {
+                                    background-color: #fe2c550f;
+                                }
+                            `}
+                        >
+                            Follow
+                        </GeneralButton>
                     </div>
                     <div className="px-8">
                         <div>
@@ -140,9 +157,11 @@ function VideoFullPage() {
                         <div className="py-4">
                             <div className="flex justify-between items-center">
                                 <div className="pt-3 pb-4 flex gap-4 shrink">
-                                    <InteractButton count={data.like} icon="fa-solid fa-heart" />
+                                    <LikeButton like={data.like} />
                                     <InteractButton count={data.comment} icon="fa-solid fa-comment-dots" />
-                                    <InteractButton count={data.bookmark} icon="fa-solid fa-bookmark" />
+                                    <a download={true} href={data.video}>
+                                        <InteractButton count={data.bookmark} icon="fa-solid fa-bookmark" />
+                                    </a>
                                 </div>
                                 <ShareBtnDiv />
                             </div>
@@ -159,6 +178,7 @@ function VideoFullPage() {
                                     https://www.tiktok.com/@sammy.becool/video/7237807460629761285?is_from_webapp=1&sender_device=pc&web_id=7244316496415131141
                                 </TextOverflow>
                                 <button
+                                    onClick={handleCopy}
                                     css={css`
                                         white-space: nowrap;
                                         padding: 7px 16px;

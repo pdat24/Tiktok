@@ -18,10 +18,12 @@ function VideoDurationBar({ targetID, className, ...attrs }) {
             video.onplay = () => {
                 clearInterval(timeID.current);
                 timeID.current = setInterval(() => {
-                    runningBar.current.style.width =
-                        (video.currentTime / totalTime) * parseFloat(window.getComputedStyle(wrapper.current).width) +
-                        "px";
-                }, 150);
+                    if (runningBar.current)
+                        runningBar.current.style.width =
+                            (video.currentTime / totalTime) *
+                                parseFloat(window.getComputedStyle(wrapper.current).width) +
+                            "px";
+                }, 200);
             };
             video.onpause = () => clearInterval(timeID.current);
         };

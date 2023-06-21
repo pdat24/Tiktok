@@ -3,8 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     theme: false,
     language: "Tiếng Việt",
-    title: "TikTok | Make Your Day",
-    accountName: {name: "@user_tiktok", default: true},
+    accountName: { name: "@user_tiktok", default: true },
 };
 
 const rootSlide = createSlice({
@@ -18,9 +17,6 @@ const rootSlide = createSlice({
         setLanguage(state, action) {
             state.language = action.payload;
         },
-        setTitle(state, action) {
-            state.title = action.payload;
-        },
         setAccountName(state, action) {
             state.accountName.name = action.payload.name;
             state.accountName.default = action.payload.default;
@@ -28,5 +24,5 @@ const rootSlide = createSlice({
     },
 });
 
-export const { setLanguage, setTheme, setTitle, setAccountName } = rootSlide.actions;
+export const { setLanguage, setTheme, setAccountName } = rootSlide.actions;
 export default rootSlide.reducer;

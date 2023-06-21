@@ -1,6 +1,4 @@
 import { Outlet, Route, Routes } from "react-router-dom";
-import { createPortal } from "react-dom";
-import { useSelector } from "react-redux";
 import HomePageRouter from "./routes/Home";
 import HomePage from "./pages/home";
 import { DefaultLayout } from "./components/layout";
@@ -8,7 +6,6 @@ import { DefaultLayout } from "./components/layout";
 function App() {
     return (
         <>
-            {createPortal(<title>{useSelector((states) => states.root.title)}</title>, document.head)}
             <Routes>
                 {/** Home page */}
                 <Route

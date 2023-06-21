@@ -9,12 +9,16 @@ import playWhenEnter from "../../components/GeneralComponent/playWhenEnter";
 import scss from "./explore.module.scss";
 import { videoTiktoks } from "../../components/GlobalVar";
 import handleShowCount from "../../components/BodyComponent/handelShowCount";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FilterBar from "./FilterBar";
+import { useDispatch } from "react-redux";
+import { setActiveVideo } from "../../components/GlobalStore/activeVideoSlice";
 
 function ExplorePage() {
     const wrapper = useRef();
     const scrollBtn = useRef();
+    const navigate = useNavigate();
+    const updateStore = useDispatch();
     const LikeDiv = ({ count }) => {
         const [liked, setLiked] = useState(false);
         return (
@@ -31,8 +35,30 @@ function ExplorePage() {
             videoBlock.current.muted = true;
             playWhenEnter({ parent: videoBlockParent.current, video: videoBlock.current });
         }, []);
+        const handleOpenFullVideo = () => {
+            updateStore(
+                setActiveVideo({
+                    video: element.video,
+                    channel: {
+                        avatar: element.avatar,
+                        userName: element.accountName,
+                        nickName: element.userName,
+                        desc: element.desc,
+                    },
+                    tags: element.tags,
+                    time: "1d",
+                    footerNote: element.footerNote,
+                    like: element.like,
+                    comment: element.comment,
+                    bookmark: element.save,
+                })
+            );
+            setTimeout(() => {
+                navigate("/video");
+            }, 100);
+        };
         return (
-            <Link ref={videoBlockParent} to="/" className="relative">
+            <div onClick={handleOpenFullVideo} ref={videoBlockParent} className="relative cursor-pointer">
                 <video loading="lazy" ref={videoBlock} className={scss.videoStyle} src={element.video}></video>
                 <div
                     className="absolute text-white font-bold bottom-0"
@@ -44,7 +70,7 @@ function ExplorePage() {
                     <i className="fa-solid fa-play"></i>&nbsp;
                     <span>{handleShowCount(element.view)}</span>
                 </div>
-            </Link>
+            </div>
         );
     };
     useEffect(() => {

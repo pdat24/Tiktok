@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import scss from "./liveComments.module.scss";
 import { useEffect, useRef, useState } from "react";
 import CommentComponent from "./CommentComponent";
+import { TitleDiv } from "../../../components/GeneralComponent";
+import handleHover from "../../../components/GeneralComponent/handleHover";
 
 function EnterCommentDiv({ onAddComment }) {
     useEffect(() => {
@@ -23,6 +25,7 @@ function EnterCommentDiv({ onAddComment }) {
             document.getElementById("commentsScrollDiv").scrollTop =
                 document.getElementById("commentsScrollDiv").scrollHeight;
         });
+        handleHover({ parent: emojiIcon.current, target: emojiTitle.current });
     }, []);
     const accountName = useSelector((states) => states.root.accountName);
     const dispatch = useDispatch();
@@ -60,6 +63,8 @@ function EnterCommentDiv({ onAddComment }) {
             e.preventDefault();
         }
     };
+    const emojiIcon = useRef();
+    const emojiTitle = useRef();
     return (
         <div>
             <div className={scss.bottom}>
@@ -89,17 +94,29 @@ function EnterCommentDiv({ onAddComment }) {
                         className={scss.inputComment}
                         placeholder="Say something nice"
                     ></textarea>
-                    <i
-                        className="fa-regular fa-face-smile p-2 text-xl select-none cursor-pointer rounded-lg hover:bg-gray-300"
-                        css={css`
-                            width: 32px;
-                            height: 32px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            transition: background 200ms;
-                        `}
-                    ></i>
+                    <div className="relative">
+                        <i
+                            ref={emojiIcon}
+                            className="fa-regular fa-face-smile p-2 text-xl select-none cursor-pointer rounded-lg hover:bg-gray-300"
+                            css={css`
+                                width: 32px;
+                                height: 32px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                transition: background 200ms;
+                            `}
+                        ></i>
+                        <TitleDiv
+                            ref={emojiTitle}
+                            css={css`
+                                top: -130%;
+                            `}
+                            className="hidden -left-3/4"
+                        >
+                            Add emojis
+                        </TitleDiv>
+                    </div>
                 </div>
                 <i
                     onClick={handleAddComment}

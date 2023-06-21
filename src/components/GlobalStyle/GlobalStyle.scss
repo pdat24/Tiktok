@@ -13,13 +13,6 @@ $header-h: 60px;
     --lighter-text-color: #16182380;
     --header-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px;
 }
-.dark {
-    --text-color: rgba(255, 255, 255, 0.9);
-    --link-color: #8fbee9;
-    --link-hover: #ffffff1f;
-    --bg-color: #121212;
-    --lighter-text-color: rgba(255, 255, 255, 0.5);
-}
 ::-webkit-scrollbar {
     width: 6px;
 }

@@ -2,7 +2,7 @@
 import { css } from "@emotion/react";
 import { Link } from "react-router-dom";
 
-function BlueTags({ family, size, children, ...attrs }) {
+function BlueTags({ to, family, size, children, ...attrs }) {
     const componentStyle = css`
         display: inline-block;
         color: #2b5db9;
@@ -14,7 +14,7 @@ function BlueTags({ family, size, children, ...attrs }) {
         }
     `;
     return (
-        <Link css={componentStyle} {...attrs}>
+        <Link to={to || "/"} css={componentStyle} {...attrs}>
             {children}
         </Link>
     );

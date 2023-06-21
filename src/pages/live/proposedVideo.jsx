@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { Avatar, TextOverflow } from "../../components/GeneralComponent";
 import scss from "./Live.module.scss";
 import handleHover from "../../components/GeneralComponent/handleHover";
+import { Link } from "react-router-dom";
 
 function ProposedVideo({ item }) {
     const layer = useRef();
@@ -50,15 +51,17 @@ function ProposedVideo({ item }) {
             <div className="flex mt-2 items-center">
                 <Avatar alt="avatar" wh="32px" src={item.avatar} />
                 <div className="ml-3">
-                    <TextOverflow
-                        className="text-gray font-bold"
-                        css={css`
-                            max-height: 44px;
-                            font-size: 15px;
-                        `}
-                    >
-                        {item.desc}
-                    </TextOverflow>
+                    <Link to="#">
+                        <TextOverflow
+                            className="text-gray font-bold hover:underline"
+                            css={css`
+                                max-height: 44px;
+                                font-size: 15px;
+                            `}
+                        >
+                            {item.desc}
+                        </TextOverflow>
+                    </Link>
                     <TextOverflow
                         className="color-gray text-sm font-medium"
                         css={css`
